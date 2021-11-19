@@ -1,4 +1,6 @@
 #pragma once
+#include <libdragon.h>
+
 #define RED graphics_make_color(0xFF, 0x00, 0x00, 0xFF)
 #define GREEN graphics_make_color(0x00, 0xFF, 0x00, 0xFF)
 #define WHITE graphics_make_color(0xFF, 0xFF, 0xFF, 0xFF)
@@ -14,24 +16,17 @@
 #define GREY graphics_make_color(0x80, 0x80, 0x80, 255)
 #define PURPLE graphics_make_color(0xFF, 0x00, 0x9B, 0xFF)
 
-#define SET_TEXT_COLOR(color,code) graphics_set_color(color,0);	code  \
-								   graphics_set_color(0xFF, 0); \
-							
-#define LINE_MOVE
-#define HI_RES
+class LibN64 {
+private:
+	virtual void FrameUpdate();
+public:
+	display_context_t LibN64_Display;
 
-#define TicksInSeconds timer_ticks() * 0.021333333 / 1000000.0
-
-/*starting width and height*/
-#define SWIDTH 320
-#define SHEIGHT 240
-
-/*between x and y*/
-#define RAND(x,y) rand() % y + x
-
-/*starting properties*/
-static resolution_t		 res = RESOLUTION_320x240;
-static display_context_t disp = 0;
-static bitdepth_t		 dep = DEPTH_16_BPP;
-
-uint32_t colors[15];
+	bool lActive;
+public:
+	LibN64(resolution_t res, bitdepth_t dep);
+	void Begin();
+	void Close();
+	void DrawText(int x, int y, char* t, uint32_t c=WHITE);
+	void DrawBox(int x, int y, int scale, uint32_t c = WHITE);
+};
