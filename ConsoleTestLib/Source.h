@@ -13,13 +13,17 @@
 #define CYAN graphics_make_color(0x00, 0xFF, 0xFF, 255)
 #define GREY graphics_make_color(0x80, 0x80, 0x80, 255)
 
-unsigned int colors[11];
 #define TicksInSeconds timer_ticks() * 0.021333333 / 1000000.0
 #define SWIDTH 320
 #define SHEIGHT 240
-static resolution_t res = RESOLUTION_320x240;
 
+/*between x and y*/
+#define RAND(x,y) rand() % y + x
+
+static resolution_t		 res = RESOLUTION_320x240;
 static display_context_t disp = 0;
-static bitdepth_t dep = DEPTH_16_BPP;
+static bitdepth_t		 dep = DEPTH_16_BPP;
 
 #define HI_RES
+
+unsigned int colors[11];

@@ -2,16 +2,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-//#include <iostream>
 
 #include "Source.h"
-
-
-//uint32_t colors[11];
-
-
-/*between x and y*/
-#define RAND(x,y) rand() % y + x
 
 class libConsoleGameEngine {
 public:
@@ -70,7 +62,41 @@ public:
 			graphics_draw_box(disp, x + cosf(a) * 3.1415f * size, y + sinf(a) * 3.1415f * size, 2, 2, colors[RAND(9, 11)]);
 	}
 
-	void draw(int y, int x, uint32_t color) {
+	void DrawText(int x, int y, char* buf, uint32_t c=WHITE) {
+		graphics_set_color(c, 0);
+		graphics_draw_text(disp, x, y, buf);
+		graphics_set_color(WHITE, 0);
+	}
+
+	template<class N>
+	void DrawDebug(int x, int y, char* buf, N arg) {
+		char buffer[sizeof(buf)];
+		sprintf(buffer, buf, arg);
+		graphics_draw_text(disp, x, y, buffer);
+	}
+
+	template<class N, class M>
+	void DrawDebug(int x, int y, char* buf, N arg, M arg2) {
+		char buffer[sizeof(buf)];
+		sprintf(buffer, buf, arg, arg2);
+		graphics_draw_text(disp, x, y, buffer);
+	}
+
+	template<class N, class M, class T>
+	void DrawDebug(int x, int y, char* buf, N arg, M arg2, T arg3) {
+		char buffer[sizeof(buf)];
+		sprintf(buffer, buf, arg, arg2, arg3);
+		graphics_draw_text(disp, x, y, buffer);
+	}
+
+	template<class N, class M, class T, class L>
+	void DrawDebug(int x, int y, char* buf, N arg, M arg2, T arg3, L arg4) {
+		char buffer[sizeof(buf)];
+		sprintf(buffer, buf, arg, arg2, arg3, arg4);
+		graphics_draw_text(disp, x, y, buffer);
+	}
+
+	void Draw(int y, int x, uint32_t color) {
 		colorBuf[y * screenWidth + x] = color;
 	}
 };
@@ -85,7 +111,6 @@ void init_displays()
 	controller_init();
 	//initialize the dfs
 	dfs_init(DFS_DEFAULT_LOCATION);
-
 	display_init(res, dep, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE);
 
 	while (!(disp = display_lock()));
@@ -101,14 +126,12 @@ bool running = true;
 
 void __header() {
 	graphics_draw_box(disp, 15, 15, 85, 30, 0x00);
-	graphics_draw_text(disp, 20, 20, "Color Gen");
-	graphics_set_color(RED, 0x0);
-	graphics_draw_text(disp, 20, 32, (res==RESOLUTION_640x480) ? "[HI-RES]" : "[LO-RES]");
-	graphics_set_color(WHITE, 0x0);
+	geInstance.DrawText(20, 20, (char*)"Color Gen");
+	geInstance.DrawText(20, 32, (char*)((res == RESOLUTION_640x480) ? "[HI-RES]" : "[LO-RES]"), RED);
 	graphics_draw_box(disp, 15, 75, 230, 20, 0x00);
-	graphics_draw_text(disp, 20, 80, "<Press up to regenerate pbp>");
+	geInstance.DrawText(20, 80, (char*)"<Press up to regenerate pbp>");
 	graphics_draw_box(disp, 15, 105, 245, 20, 0x00);
-	graphics_draw_text(disp, 20, 110, "<Press down to regenerate lbl>");
+	geInstance.DrawText(20, 110, (char*)"<Press down to regenerate lbl>");
 }
 
 int s;
@@ -173,9 +196,9 @@ int main() {
 				s = ~s & 1;
 				if (s) {
 					graphics_draw_box(disp, geInstance.screenWidth / 2 - 100, geInstance.screenHeight / 2 - 80, 200, 120, RED);
-					graphics_draw_text(disp, geInstance.screenWidth / 2 - 60, geInstance.screenHeight / 2 - 70, "HELP MENU");
-					graphics_draw_text(disp, geInstance.screenWidth / 2 - 60, geInstance.screenHeight / 2 - 65, "---------");
-					graphics_draw_text(disp, geInstance.screenWidth / 2 - 80, geInstance.screenHeight / 2 - 55, "C-UP/DOWN/LEFT/RIGHT\nto move circle");
+					geInstance.DrawText(geInstance.screenWidth / 2 - 60, geInstance.screenHeight / 2 - 70, (char*)"HELP MENU");
+					geInstance.DrawText(geInstance.screenWidth / 2 - 60, geInstance.screenHeight / 2 - 65, (char*)"---------");
+					geInstance.DrawText(geInstance.screenWidth / 2 - 80, geInstance.screenHeight / 2 - 55, (char*)"C-UP/DOWN/LEFT/RIGHT\nto move circle");
 				} else {
 					geInstance.DrawScreen_LBL();
 					__header();
@@ -186,18 +209,27 @@ int main() {
 		int liney = 80 + sinf(angle) * 3.1415 * distance;
 		geInstance.DrawCircle(cosf(TicksInSeconds) * 3.1415f + 40, 160 + sinf(TicksInSeconds) * 3.1415f * 6, 4);
 		geInstance.DrawCircle(120 + cosf(TicksInSeconds) * 3.1415f * 18, 160 + atanf(TicksInSeconds) * 3.1415f * 6, 4);
+
 		graphics_draw_line(disp, 40 + TicksInSeconds, 30 + TicksInSeconds, linex,liney, RED);
-		char buffer[50];
-		sprintf(buffer, "x difference %f\ny %f\nc = %f\nline deg.%f", (40 + TicksInSeconds - linex), (30 + TicksInSeconds - liney), sqrt(pow(40 + TicksInSeconds - linex,2) + pow(30 + TicksInSeconds - liney,2)), angle/3.1415 * 180);
+
+		/*temporarily set text color*/
 		graphics_set_color(GOLD, 0x0);
-		graphics_draw_box(disp, 125, 15, 200, 40, 0x0);
-		graphics_draw_text(disp, 130, 20, buffer);
+		graphics_draw_box(disp, 125, 15, 195, 40, 0x0);
+
+		geInstance.DrawDebug<float, float, float, float>(130, 20,
+			(char*)"x difference %f\ny %f\nc = %f\nline deg. %f",
+			(40 + TicksInSeconds - linex),
+			(30 + TicksInSeconds - liney),
+			sqrt(pow(40 + TicksInSeconds - linex, 2) + pow(30 + TicksInSeconds - liney, 2)),
+			angle / 3.1415 * 180);
+
 		graphics_set_color(WHITE, 0x0);
 		geInstance.DrawCircle(cx, cy, 4);
 
 
 		long timer_running = timer_ticks();
 
+		/*refresh screen every 15 seconds*/
 		if (((timer_running - timer_start) * 0.021333333 / 1000000.0) >= 15) {
 			timer_close();
 			timer_init();
@@ -207,10 +239,13 @@ int main() {
 		}
 
 
-		char showTime[35]; 
 		graphics_draw_box(disp, geInstance.screenWidth - 315, geInstance.screenHeight - 20, 310, 20, 0x00);
-		sprintf(showTime, "Elapsed %.2f Start %.2f Remaining %.2f", TicksInSeconds, (timer_ticks() - timer_start) * 0.021333333 / 1000000.0, 15 - TicksInSeconds);
-		graphics_draw_text(disp, geInstance.screenWidth - 310, geInstance.screenHeight - 15, showTime);
+		geInstance.DrawDebug<float, float, float>
+			(geInstance.screenWidth - 310, geInstance.screenHeight - 15, (char*)"Elapsed %.2f Start %.2f  Remaining %.2f", 
+			TicksInSeconds, 
+			(timer_ticks() - timer_start) * 0.021333333 / 1000000.0, 
+			15 - TicksInSeconds);
+
 		display_show(disp); 
 	}
 
