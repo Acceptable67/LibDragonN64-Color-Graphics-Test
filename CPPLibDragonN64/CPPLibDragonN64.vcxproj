@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{5496d3d0-c5c8-4116-8cfe-29e88698ff7e}</ProjectGuid>
-    <RootNamespace>ConsoleTestLib</RootNamespace>
+    <ProjectGuid>{efdc9eaf-83a5-42e3-ae03-f28660a813ec}</ProjectGuid>
+    <RootNamespace>CPPLibDragonN64</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -96,11 +96,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
@@ -124,13 +124,10 @@ del %ROMNAME%.v64
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
-%N64_INST%/bin/chksum64 %ROMNAME%.v64
-
-</Command>
+%N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>
     <PreBuildEvent>
-      <Message>
-Build and Link with external MIPS library</Message>
+      <Message>Build and link with external MIPS library</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -141,13 +138,13 @@ Build and Link with external MIPS library</Message>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
@@ -171,13 +168,10 @@ del %ROMNAME%.v64
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
-%N64_INST%/bin/chksum64 %ROMNAME%.v64
-
-</Command>
+%N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>
     <PreBuildEvent>
-      <Message>
-Build and Link with external MIPS library</Message>
+      <Message>Build and link with external MIPS library</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -186,11 +180,11 @@ Build and Link with external MIPS library</Message>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
@@ -214,13 +208,10 @@ del %ROMNAME%.v64
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
-%N64_INST%/bin/chksum64 %ROMNAME%.v64
-
-</Command>
+%N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>
     <PreBuildEvent>
-      <Message>
-Build and Link with external MIPS library</Message>
+      <Message>Build and link with external MIPS library</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -231,13 +222,13 @@ Build and Link with external MIPS library</Message>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
     <PreBuildEvent>
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
@@ -261,21 +252,18 @@ del %ROMNAME%.v64
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
-%N64_INST%/bin/chksum64 %ROMNAME%.v64
-
-</Command>
+%N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>
     <PreBuildEvent>
-      <Message>
-Build and Link with external MIPS library</Message>
+      <Message>Build and link with external MIPS library</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClInclude Include="LibN64.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LibConsoleGameEngine.h" />
-    <ClInclude Include="Source.h" />
+    <ClCompile Include="LibN64.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

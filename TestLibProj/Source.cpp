@@ -180,7 +180,8 @@ gMapItem items[2] =
     {3,6} 
 };
 
-int main(void) {
+
+/*int main(void) {
 
     init_displays();
     initLibSprites();
@@ -264,4 +265,4 @@ int main(void) {
         display_show(disp);
     }
     return 0;
-}
+}*/
