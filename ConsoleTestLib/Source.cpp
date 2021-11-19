@@ -7,26 +7,29 @@
 
 class libConsoleGameEngine {
 public:
-	char screenBuffer[640*480];
+	char screenBuffer[640*480]; /*choose max size to prevent constant reallocation upon switching*/
 	uint32_t colorBuf[640*480];
 	int screenWidth;
 	int screenHeight;
 	
 
 	void Init(int w, int h) {
-		/*array initialization does not work*/
-		colors[0] = RED;
-		colors[1] = GREEN;
-		colors[2] = WHITE;
-		colors[3] = SKY_BLUE;
-		colors[4] = CYAN;
-		colors[5] = ORANGE;
-		colors[6] = GOLD;
-		colors[7] = YELLOW;
-		colors[8] = GREY;
-		colors[9] = WHITE;
-		colors[10] = DARK_RED;
-		colors[11] = SKY_BLUE;
+		/*array initialization does not work here*/
+		colors[0]	= RED;
+		colors[1]	= GREEN;
+		colors[2]	= WHITE;
+		colors[3]	= SKY_BLUE;
+		colors[4]	= CYAN;
+		colors[5]	= ORANGE;
+		colors[6]	= GOLD;
+		colors[7]	= YELLOW;
+		colors[8]	= GREY;
+		colors[9]	= WHITE;
+		colors[10]	= DARK_RED;
+		colors[11]	= NAVY_BLUE;
+		colors[12]	= DEEP_DARK_RED;
+		colors[13]	= DARK_GREEN;
+		colors[14]	= PURPLE;
 
 		screenWidth = w;
 		screenHeight = h;
@@ -41,7 +44,7 @@ public:
 	void DrawScreen_PBP() {
 		for (int h = 0; h < screenHeight; h++) {
 			for (int w = 0; w < screenWidth; w++) {
-				graphics_draw_box(disp, w, h,1,1, colors[RAND(0,11)]);
+				graphics_draw_box(disp, w, h,1,1, colors[RAND(0,13)]);
 			}
 		}
 		
@@ -49,7 +52,7 @@ public:
 
 	void DrawScreen_LBL() {
 		for (int h = 0; h < screenHeight; h++) {
-			uint32_t new_color = colors[rand() % 11 + 0];
+			uint32_t new_color = colors[rand() % 13 + 0];
 			for (int w = 0; w < screenWidth; w++) {
 				graphics_draw_box(disp, w, h, 1, 1, new_color);
 			}
@@ -59,7 +62,7 @@ public:
 
 	void DrawCircle(int x, int y, int size) {
 		for(int a = 0;a<80;a++)
-			graphics_draw_box(disp, x + cosf(a) * 3.1415f * size, y + sinf(a) * 3.1415f * size, 2, 2, colors[RAND(9, 11)]);
+			graphics_draw_box(disp, x + cosf(a) * 3.1415f * size, y + sinf(a) * 3.1415f * size, 2, 2, colors[RAND(8, 12)]);
 	}
 
 	void DrawText(int x, int y, char* buf, uint32_t c=WHITE) {
@@ -101,6 +104,7 @@ public:
 	}
 };
 
+libConsoleGameEngine geInstance;
 
 void init_displays()
 {
@@ -120,13 +124,13 @@ void init_displays()
 	graphics_set_color(0xFFFFFFFF, 0x0);
 }
 
-libConsoleGameEngine geInstance;
+
 
 bool running = true;
 
 void __header() {
 	graphics_draw_box(disp, 15, 15, 85, 30, 0x00);
-	geInstance.DrawText(20, 20, (char*)"Color Gen");
+	geInstance.DrawText(20, 20, (char*)"Color Gen", ORANGE);
 	geInstance.DrawText(20, 32, (char*)((res == RESOLUTION_640x480) ? "[HI-RES]" : "[LO-RES]"), RED);
 	graphics_draw_box(disp, 15, 75, 230, 20, 0x00);
 	geInstance.DrawText(20, 80, (char*)"<Press up to regenerate pbp>");
@@ -209,7 +213,11 @@ int main() {
 		geInstance.DrawCircle(cosf(TicksInSeconds) * 3.1415f + 40, 160 + sinf(TicksInSeconds) * 3.1415f * 6, 4);
 		geInstance.DrawCircle(120 + cosf(TicksInSeconds) * 3.1415f * 14, 160 + sinf(TicksInSeconds) * 3.1415f * 6, 4);
 
+#ifdef LINE_MOVE
 		graphics_draw_line(disp, 40 + TicksInSeconds, 30 + TicksInSeconds, linex,liney, RED);
+#else
+		graphics_draw_line(disp, 40, 30, linex, liney, RED);
+#endif
 
 		graphics_draw_box(disp, geInstance.screenWidth - 195,  15, 195, 40, 0x0);
 		/*temporarily set text color*/

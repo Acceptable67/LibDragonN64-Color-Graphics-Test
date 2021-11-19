@@ -1,4 +1,6 @@
 #pragma once
+#include <stdio.h>
+#include <string.h>
 enum {
     TEXT_FROMCLASS = 0
 };
@@ -30,6 +32,7 @@ public:
         return stack[loc];
     }
 
+    /*allow casting of return object*/
     template<class vclass>
     vclass at(int loc) {
         return *stack[loc];
