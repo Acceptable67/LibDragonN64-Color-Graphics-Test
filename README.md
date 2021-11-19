@@ -3,6 +3,7 @@ A play around of mathematical functions to draw interesting objects to the scree
 # CPPLibDragonN64 
 This is a C++ compatible LibDragon class engine that provides a decent framework
 for a potential library.
+<IMG SRC="https://i.gyazo.com/e36d6c135789f76bf6f79774a4d5ca8c.png"></IMG>
 # ConsoleTestLib
 # <img src="https://i.gyazo.com/bb6717da3316b91ca628648acb9bc296.png"></img>
 # TestProjLib
