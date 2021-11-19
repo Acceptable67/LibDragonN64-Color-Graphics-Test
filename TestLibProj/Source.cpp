@@ -9,42 +9,6 @@
 #include "Source.h"
 #include "LibSprite.h"
 
-int filesize(FILE* pFile)
-{
-    fseek(pFile, 0, SEEK_END);
-    int lSize = ftell(pFile);
-    rewind(pFile);
-
-    return lSize;
-}
-
-sprite_t* read_sprite(const char* const spritename)
-{
-    int fp = dfs_open(spritename);
-
-    if (fp)
-    {
-        sprite_t* sp = (sprite_t*)malloc(dfs_size(fp));
-        dfs_read(sp, 1, dfs_size(fp), fp);
-        dfs_close(fp);
-
-        return sp;
-    }
-    else
-    {
-        return 0;
-    }
-}
-
-void init_sprites() {
-    int fp = dfs_open("rom://mudkip.sprite");
-    sprite_t* plane = (sprite_t*)malloc(dfs_size(fp));
-    dfs_read(plane, 1, dfs_size(fp), fp);
-    dfs_close(fp);
-
-}
-
-
 void init_displays()
 {
 
@@ -107,7 +71,6 @@ bool WillCollide(int x1, int y1) {
         map[y1][x1] == '%') {
 
         long start = timer_ticks();
-        new_timer(TIMER_TICKS(1000000), TF_CONTINUOUS, click);
         //draw_msg(2);
 
         while (TICKS_TOTAL(start) < 0.5) {
@@ -210,10 +173,13 @@ void initLibSprites() {
 Vector<int> v;
 Vector<String> st;
 
-gMapItem items[] = {
-    gMapItem{2,4},
-    gMapItem{3,6} 
+//test items
+gMapItem items[2] = 
+{
+    {2,4},
+    {3,6} 
 };
+
 int main(void) {
 
     init_displays();
@@ -223,21 +189,17 @@ int main(void) {
    
     DrawMap();
     background.Draw(0, 0, false, 2);
-
+    
     curSpr = &profDown;
-  
-
-    weapon.x = 4;
+      weapon.x = 4;
     weapon.y = 5;
     test.y = 5;
     test.x = 2;
     
 
-    gMapItem *tester = &items[0];
-    gMapItem *weaponer = &items[1];
     Vector<gMapItem*> sp;
-    sp.push_backp(tester);
-    sp.push_backp(weaponer);
+    sp.push_backp(&items[0]);
+    sp.push_backp(&items[1]);
 
     for (int i = 0; i < 2; i++) {
         map[sp.at<gMapItem*>(i)->y][sp.at<gMapItem*>(i)->x] = '%';
@@ -260,8 +222,8 @@ int main(void) {
                 v.push_back(4);
               
                 
-                char buff[40];
-                sprintf(buff, "test %d %d c %d stack size %d ptr %p tester %d %d wep %d %d", v.at(0), v.at(1), v.counter, sizeof(v.stack), &v, sp.at<gMapItem*>(0)->y, sp.at<gMapItem*>(0)->x, sp.at<gMapItem*>(1)->y, sp.at<gMapItem*>(1)->x);
+                char buff[45];
+                sprintf(buff, "test %d %d c %d stack size %d ptr %p gMapItem1 Y%d X%d gMapItem2 Y%d X%d", v.at(0), v.at(1), v.counter, sizeof(v.stack), &v, sp.at<gMapItem*>(0)->y, sp.at<gMapItem*>(0)->x, sp.at<gMapItem*>(1)->y, sp.at<gMapItem*>(1)->x);
                 DrawText(10, 200, buff);
                 DrawMap();
             }
