@@ -134,10 +134,30 @@ void __header() {
 	geInstance.DrawText(20, 110, (char*)"<Press down to regenerate lbl>");
 }
 
+void __helpMenu() {
+	graphics_draw_box(disp, geInstance.screenWidth / 2 - 100, geInstance.screenHeight / 2 - 80, 200, 120, RED);
+	geInstance.DrawText(geInstance.screenWidth / 2 - 60, geInstance.screenHeight / 2 - 70, (char*)"HELP MENU");
+	geInstance.DrawText(geInstance.screenWidth / 2 - 55, geInstance.screenHeight / 2 - 65, (char*)"---------");
+	geInstance.DrawText(geInstance.screenWidth / 2 - 80, geInstance.screenHeight / 2 - 55, (char*)
+		"C-UP/DOWN/LEFT/RIGHT\n- move circle\n\nA & B - change res\nZ - increase line dist.\nD-L/R - change angle");
+}
+
 int s;
 
 float angle = 0;
 float distance = 0;
+
+/*small macro for below*/
+void SetScreen(resolution_t resol, int w, int h) 
+{
+	display_close();
+	res = resol;
+	display_init(resol, dep, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE);
+	disp = display_lock();
+	geInstance.Init(w, h);
+	__header();
+}
+
 int main() {
 	init_displays();
 	timer_init();
@@ -152,6 +172,7 @@ int main() {
 
 		controller_scan();
 		controller_data keys = get_keys_down();
+
 		if (keys.c[0].err == ERROR_NONE)
 		{
 			if (keys.c[0].up) {
@@ -164,41 +185,19 @@ int main() {
 				__header();
 			}
 
-			if (keys.c[0].C_left)  { cx -= 5.0;}
-			if (keys.c[0].C_right) { cx += 5.0;}
-			if (keys.c[0].C_up)    { cy -= 3.0; }
-			if (keys.c[0].C_down)  { cy += 3.0; }
-
-			if (keys.c[0].left) {
-				angle -= 0.2;
-			}
-			if (keys.c[0].right) {
-				angle += 0.2;
-			}
-			if (keys.c[0].Z) {
-				distance += 1;
-			}
-			if (keys.c[0].B) {
-				display_close();
-				res = RESOLUTION_640x480;
-				display_init(RESOLUTION_640x480, dep, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE);
-				disp = display_lock();
-				geInstance.Init(640, 480);
-			}
-			if (keys.c[0].A) {
-				display_close();
-				res = RESOLUTION_320x240;
-				display_init(RESOLUTION_320x240, dep, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE);
-				disp = display_lock();
-				geInstance.Init(320, 240);
-			}
+			if (keys.c[0].C_left)  { cx		-= 5.0;}
+			if (keys.c[0].C_right) { cx		+= 5.0;}
+			if (keys.c[0].C_up)    { cy		-= 3.0; }
+			if (keys.c[0].C_down)  { cy		+= 3.0; }
+			if (keys.c[0].left)	   {angle	-= 0.2;}
+			if (keys.c[0].right)   {angle	+= 0.2;}
+			if (keys.c[0].Z)       {distance += 1;}
+			if (keys.c[0].B)	   {SetScreen(RESOLUTION_640x480, 640, 480);}
+			if (keys.c[0].A)	   {SetScreen(RESOLUTION_320x240, 320, 240);}
 			if (keys.c[0].start) {
-				s = ~s & 1;
+				s = ~s & 1; 
 				if (s) {
-					graphics_draw_box(disp, geInstance.screenWidth / 2 - 100, geInstance.screenHeight / 2 - 80, 200, 120, RED);
-					geInstance.DrawText(geInstance.screenWidth / 2 - 60, geInstance.screenHeight / 2 - 70, (char*)"HELP MENU");
-					geInstance.DrawText(geInstance.screenWidth / 2 - 60, geInstance.screenHeight / 2 - 65, (char*)"---------");
-					geInstance.DrawText(geInstance.screenWidth / 2 - 80, geInstance.screenHeight / 2 - 55, (char*)"C-UP/DOWN/LEFT/RIGHT\nto move circle");
+					__helpMenu();
 				} else {
 					geInstance.DrawScreen_LBL();
 					__header();
@@ -208,15 +207,15 @@ int main() {
 		int linex = 40 + cosf(angle) * 3.1415 * distance;
 		int liney = 80 + sinf(angle) * 3.1415 * distance;
 		geInstance.DrawCircle(cosf(TicksInSeconds) * 3.1415f + 40, 160 + sinf(TicksInSeconds) * 3.1415f * 6, 4);
-		geInstance.DrawCircle(120 + cosf(TicksInSeconds) * 3.1415f * 18, 160 + atanf(TicksInSeconds) * 3.1415f * 6, 4);
+		geInstance.DrawCircle(120 + cosf(TicksInSeconds) * 3.1415f * 14, 160 + sinf(TicksInSeconds) * 3.1415f * 6, 4);
 
 		graphics_draw_line(disp, 40 + TicksInSeconds, 30 + TicksInSeconds, linex,liney, RED);
 
+		graphics_draw_box(disp, geInstance.screenWidth - 195,  15, 195, 40, 0x0);
 		/*temporarily set text color*/
 		graphics_set_color(GOLD, 0x0);
-		graphics_draw_box(disp, 125, 15, 195, 40, 0x0);
 
-		geInstance.DrawDebug<float, float, float, float>(130, 20,
+		geInstance.DrawDebug<float, float, float, float>(geInstance.screenWidth - 185, 20,
 			(char*)"x difference %f\ny %f\nc = %f\nline deg. %f",
 			(40 + TicksInSeconds - linex),
 			(30 + TicksInSeconds - liney),
