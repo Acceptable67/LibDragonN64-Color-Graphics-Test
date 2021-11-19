@@ -19,14 +19,24 @@
 class LibN64 {
 private:
 	virtual void FrameUpdate();
+	virtual void KeyAPressed();
+	virtual void KeyBPressed();
+
+	virtual void KeyDUPressed();
+	virtual void KeyDDPressed();
+	virtual void KeyDLPressed();
+	virtual void KeyDRPressed();
+
 public:
 	display_context_t LibN64_Display;
 
 	bool lActive;
 public:
 	LibN64(resolution_t res, bitdepth_t dep);
+	virtual void OnCreate();
 	void Begin();
 	void Close();
-	void DrawText(int x, int y, char* t, uint32_t c=WHITE);
+	void ClearScreen();
+	void DrawText(int x, int y, char* t, uint32_t c = WHITE);
 	void DrawBox(int x, int y, int scale, uint32_t c = WHITE);
 };
