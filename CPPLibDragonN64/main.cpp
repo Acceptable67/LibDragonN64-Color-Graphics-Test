@@ -6,9 +6,18 @@ class Instance : public LibN64 {
 public:
     Instance(resolution_t res, bitdepth_t dep) : LibN64(res, dep) {}
 
+    virtual void OnCreate() 
+    {
+
+    }
 protected:
-    virtual void FrameUpdate() {
-        DrawText(0, 0, "This is a test of the CPP LibDragon framework.");
+    virtual void FrameUpdate() 
+    {
+        DrawText(5, 10, (char*)"This is a test of the CPP LibDragon\nframework.");
+    }
+    
+    virtual void KeyAPressed() {
+        DrawText(10, 30, (char*)"Key A pressed.");
     }
 };
 
