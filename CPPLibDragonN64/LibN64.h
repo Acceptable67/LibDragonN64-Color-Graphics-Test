@@ -1,6 +1,7 @@
 #pragma once
 #include <libdragon.h>
-
+#include <math.h>
+#include <string.h>
 #define RED graphics_make_color(0xFF, 0x00, 0x00, 0xFF)
 #define GREEN graphics_make_color(0x00, 0xFF, 0x00, 0xFF)
 #define WHITE graphics_make_color(0xFF, 0xFF, 0xFF, 0xFF)
@@ -16,6 +17,8 @@
 #define GREY graphics_make_color(0x80, 0x80, 0x80, 255)
 #define PURPLE graphics_make_color(0xFF, 0x00, 0x9B, 0xFF)
 
+#define TICKS_TOTAL(since_start) (timer_ticks()-since_start) * 0.021333333 / 1000000.0
+#define TICKS2SECONDS(ticks) (ticks * 0.021333333 / 1000000.0)
 class LibN64 {
 private:
 	virtual void FrameUpdate();
@@ -27,16 +30,38 @@ private:
 	virtual void KeyDLPressed();
 	virtual void KeyDRPressed();
 
+	uint32_t screenWidth;
+	uint32_t screenHeight;
+
+	void DrawFrame();
 public:
 	display_context_t LibN64_Display;
 
+	const char* romTitle;
 	bool lActive;
+
+	float fFrameTime;
+	float fTotalTime;
 public:
 	LibN64(resolution_t res, bitdepth_t dep);
 	virtual void OnCreate();
 	void Begin();
 	void Close();
 	void ClearScreen();
-	void DrawText(int x, int y, char* t, uint32_t c = WHITE);
+	uint32_t ScreenWidth();
+	uint32_t ScreenHeight();
+	void DrawText(int x, int y, const char* t, uint32_t c = WHITE);
 	void DrawBox(int x, int y, int scale, uint32_t c = WHITE);
+	void DrawCircle(int x, int y, int scale, uint32_t c = WHITE);
+	
+/*Functions are refusing to compile*/
+#define DrawTextFormat(x,y,buf,arg) char buffer[strlen(buf)]; \
+									sprintf(buffer, buf, arg); \
+									graphics_draw_text(LibN64_Display, x, y, buffer); \
+
+#define DrawTextFormat(x,y,buf,arg,arg2) char buffer[strlen(buf)]; \
+									sprintf(buffer, buf, arg, arg2); \
+									graphics_draw_text(LibN64_Display, x, y, buffer); \
+
+
 };
