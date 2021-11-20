@@ -2,22 +2,42 @@
 #include <stdlib.h>
 
 #include "LibN64.h"
+
+/*  virtual functions to override:
+    KeyAPressed
+    KeyBPressed
+    KeyDUPressed
+    KeyDDPressed
+    KeyDLPressed
+    KeyDRPressed
+    OnCreate
+    FrameUpdate
+*/
+
 class Instance : public LibN64 {
 public:
     Instance(resolution_t res, bitdepth_t dep) : LibN64(res, dep) {}
 
     virtual void OnCreate() 
     {
-
+        romTitle = "LibN64 Test";
     }
 protected:
     virtual void FrameUpdate() 
     {
-        DrawText(5, 10, (char*)"This is a test of the CPP LibDragon\nframework.");
+        DrawText(5, 10, "This is a test of the CPP LibDragon\nframework.");
+        DrawCircle(30, 60, 6, RED);
+        
+        DrawTextFormat(30, 90, "Total %f Elapsed %f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime))
+
     }
     
     virtual void KeyAPressed() {
         DrawText(10, 30, (char*)"Key A pressed.");
+    }
+
+    virtual void KeyBPressed() {
+        ClearScreen();
     }
 };
 

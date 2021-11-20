@@ -2,6 +2,16 @@
 
 LibN64::LibN64(resolution_t res=RESOLUTION_320x240, bitdepth_t dep=DEPTH_32_BPP) {
 	LibN64_Display = 0;
+
+if (res == RESOLUTION_320x240) {
+		this->screenWidth = 320;
+		this->screenHeight = 240;
+	}
+	else {
+		this->screenWidth = 640;
+		this->screenHeight = 480;
+	}
+
 	/* enable interrupts (on the CPU) */
 	init_interrupts();
 	/* Initialize peripherals */
@@ -32,6 +42,20 @@ void LibN64::ClearScreen() {
 	graphics_fill_screen(LibN64_Display, 0x0);
 }
 
+/*void LibN64::DrawFrame() {
+	for (int h = 0; h < screenHeight; h++) {
+		for (int w = 0; w < screenWidth; w++) {
+			graphics_draw_box(LibN64_Display, w, h, 1,1,screenBuf[h * screenWidth + w]);
+
+		}
+	}
+}*/
+
+uint32_t LibN64::ScreenWidth() { return screenWidth; }
+
+uint32_t LibN64::ScreenHeight() { return screenHeight; }
+
+
 void LibN64::DrawBox(int x, int y, int scale, uint32_t c)
 {
 	graphics_draw_box(LibN64_Display, x, y, scale, scale, c);
@@ -40,6 +64,7 @@ void LibN64::DrawBox(int x, int y, int scale, uint32_t c)
 void LibN64::Begin() {	
 	this->OnCreate();
 	while (lActive) {
+		timer_init();
 		this->FrameUpdate();
 
 		controller_scan();
@@ -66,15 +91,25 @@ void LibN64::Begin() {
 			}
 		}
 		display_show(LibN64_Display);
+
+		fFrameTime = timer_ticks();
+		fTotalTime += fFrameTime;
+		timer_close();
 	}
 }
 
 void LibN64::Close() {
 	lActive = false;
 }
+void LibN64::DrawCircle(int x, int y, int scale, uint32_t c) {
+	for(int angles =0;angles<80*scale;angles++) {
+		graphics_draw_box(LibN64_Display, x + cosf(angles) * 3.1415f * scale, y + sinf(angles) * 3.1415f * scale, 1, 1, c);
+	}
+}
 
-void LibN64::DrawText(int x, int y, char* buf, uint32_t c) {
+void LibN64::DrawText(int x, int y, const char* buf, uint32_t c) {
 	graphics_set_color(c, 0);
 	graphics_draw_text(LibN64_Display, x, y, buf);
 	graphics_set_color(WHITE, 0);
 }
+
