@@ -36,6 +36,7 @@ void LibN64::KeyDUPressed() {}
 void LibN64::KeyDDPressed() {}
 void LibN64::KeyDLPressed() {}
 void LibN64::KeyDRPressed() {}
+void LibN64::KeyZPressed()	{}
 void LibN64::OnCreate() {}
 
 void LibN64::ClearScreen() {
@@ -89,6 +90,9 @@ void LibN64::Begin() {
 			if (keys.c[0].right) {
 				this->KeyDRPressed();
 			}
+			if (keys.c[0].z) {
+				this->KeyZPressed();
+			}
 		}
 		display_show(LibN64_Display);
 
@@ -112,4 +116,3 @@ void LibN64::DrawText(int x, int y, const char* buf, uint32_t c) {
 	graphics_draw_text(LibN64_Display, x, y, buf);
 	graphics_set_color(WHITE, 0);
 }
-

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include <SVector.h>
 #include "LibN64.h"
 
 /*  virtual functions to override:
@@ -22,14 +23,14 @@ public:
     {
         romTitle = "LibN64 Test";
     }
+
 protected:
     virtual void FrameUpdate() 
     {
         DrawText(5, 10, "This is a test of the CPP LibDragon\nframework.");
         DrawCircle(30, 60, 6, RED);
+        DrawTextFormat<float, float>(30, 90, (char*)"Total %f Elapsed %f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime));
         
-        DrawTextFormat(30, 90, "Total %f Elapsed %f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime))
-
     }
     
     virtual void KeyAPressed() {
