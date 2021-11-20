@@ -172,6 +172,7 @@ void initLibSprites() {
 
 Vector<int> v;
 Vector<String> st;
+Vector<float> fl;
 
 //test items
 gMapItem items[2] = 
@@ -181,7 +182,7 @@ gMapItem items[2] =
 };
 
 
-/*int main(void) {
+int main(void) {
 
     init_displays();
     initLibSprites();
@@ -197,7 +198,6 @@ gMapItem items[2] =
     test.y = 5;
     test.x = 2;
     
-
     Vector<gMapItem*> sp;
     sp.push_backp(&items[0]);
     sp.push_backp(&items[1]);
@@ -265,4 +265,4 @@ gMapItem items[2] =
         display_show(disp);
     }
     return 0;
-}*/
+}
