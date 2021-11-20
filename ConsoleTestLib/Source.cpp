@@ -222,13 +222,15 @@ int main() {
 		graphics_draw_box(disp, geInstance.screenWidth - 195,  15, 195, 40, 0x0);
 		/*temporarily set text color*/
 		graphics_set_color(GOLD, 0x0);
+#define RAD_TO_DEG 57.295779513082320876798154814105
+#define degrees(rad) ((rad)*RAD_TO_DEG
 
 		geInstance.DrawDebug<float, float, float, float>(geInstance.screenWidth - 185, 20,
 			(char*)"x difference %f\ny %f\nc = %f\nline deg. %f",
 			(40 + TicksInSeconds - linex),
 			(30 + TicksInSeconds - liney),
 			sqrt(pow(40 + TicksInSeconds - linex, 2) + pow(30 + TicksInSeconds - liney, 2)),
-			angle / 3.1415 * 180);
+			degrees(angle)));
 
 		graphics_set_color(WHITE, 0x0);
 		geInstance.DrawCircle(cx, cy, 4);
