@@ -240,14 +240,12 @@ int main(void) {
                 curSpr = &profLeft;
                 curSprPos.x -= 20;
                 DrawMap();
-                //graphics_draw_sprite_trans(disp, 0, 0, jane);
             }
             else if (keys.c[0].right) {
                 if (!WillCollide(PCoords.x + 1, PCoords.y));
                 curSpr = &profRight;
                 curSprPos.x += 20;
                 DrawMap();
-                //graphics_draw_sprite_trans(disp, 0, 0, jane);
             }
             else if (keys.c[0].B) {
                 angle -= 20;

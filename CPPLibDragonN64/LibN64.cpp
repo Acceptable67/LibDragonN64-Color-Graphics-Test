@@ -43,6 +43,28 @@ void LibN64::ClearScreen() {
 	graphics_fill_screen(LibN64_Display, 0x0);
 }
 
+void LibN64::SetScreen(resolution_t resol, bitdepth_t bd)
+{
+	switch (resol) {
+	case RESOLUTION_320x240:
+		this->screenWidth = 320;
+		this->screenHeight = 240;
+		break;
+	case RESOLUTION_640x480: 
+		this->screenWidth = 640;
+		this->screenHeight = 480;
+		break;
+	default: 
+		this->screenWidth = 320;
+		this->screenHeight = 240; 
+		break;
+	}
+
+	display_close();
+	display_init(resol, bd, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE);
+	LibN64_Display = display_lock();
+}
+
 /*void LibN64::DrawFrame() {
 	for (int h = 0; h < screenHeight; h++) {
 		for (int w = 0; w < screenWidth; w++) {

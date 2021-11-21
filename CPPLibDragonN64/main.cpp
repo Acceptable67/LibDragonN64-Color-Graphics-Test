@@ -16,12 +16,14 @@
 */
 
 libSprite logo;
+
 class Instance : public LibN64 {
 public:
     Instance(resolution_t res, bitdepth_t dep) : LibN64(res, dep) {}
 
     virtual void OnCreate() 
     {
+        /*any initialization code*/
         logo.Ready(0x50, 0x4E, n64logo);
         romTitle = "LibN64 Test";
     }
@@ -33,9 +35,8 @@ protected:
         DrawCircle(30, 60, 6, RED);
         DrawTextFormat<float, float>(30, 90, (char*)"Total %f Elapsed %f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime));
 
-        /*Draw n64 logo*/
+        /*Draw N64 logo*/
         logo.Draw(LibN64_Display, 10, 160, 1, 1);
-        
     }
     
     virtual void KeyAPressed() {
@@ -45,6 +46,19 @@ protected:
     virtual void KeyBPressed() {
         ClearScreen();
     }
+    
+    virtual void KeyZPressed() {
+        /*Alternate resolution*/
+        res = ~res & 1;
+        if (res) {
+            SetScreen(RESOLUTION_320x240, DEPTH_32_BPP);
+        }
+        else {
+            SetScreen(RESOLUTION_640x480, DEPTH_32_BPP);
+        }
+    }
+private:
+    int res;
 };
 
 int main(void) {

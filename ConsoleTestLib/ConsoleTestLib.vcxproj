@@ -271,9 +271,17 @@ Build and Link with external MIPS library</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArduinoC.c">
+      <SubType>
+      </SubType>
+    </ClCompile>
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ArduinoC.h">
+      <SubType>
+      </SubType>
+    </ClInclude>
     <ClInclude Include="LibConsoleGameEngine.h" />
     <ClInclude Include="Source.h" />
   </ItemGroup>
