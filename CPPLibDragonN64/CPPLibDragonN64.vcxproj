@@ -114,9 +114,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+%N64_INST%/bin/mips64-elf-gcc -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -158,9 +158,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+%N64_INST%/bin/mips64-elf-gcc -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -198,9 +198,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+%N64_INST%/bin/mips64-elf-gcc -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -242,9 +242,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+%N64_INST%/bin/mips64-elf-gcc -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -260,6 +260,7 @@ del %ROMNAME%.v64
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="LibN64.h" />
+    <ClInclude Include="Sprites.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LibN64.cpp" />

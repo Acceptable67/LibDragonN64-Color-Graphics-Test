@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
+#include <LibN64_h.h>
 
 #include "Source.h"
 

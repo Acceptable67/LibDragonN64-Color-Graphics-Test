@@ -74,12 +74,12 @@ bool WillCollide(int x1, int y1) {
         //draw_msg(2);
 
         while (TICKS_TOTAL(start) < 0.5) {
-            background.Draw(0, TICKS_TOTAL(start), false, 2);
+            background.Draw(disp, 0, TICKS_TOTAL(start), false, 2);
             char buffer[40];
             sprintf(buffer, "Collision detected (Ticks total %f)", TICKS_TOTAL(start));
             DrawText(10, 200, buffer);
         }
-        background.Draw(0, 0, false, 2);
+        background.Draw(disp, 0, 0, false, 2);
         return true;
     }
     else {
@@ -87,7 +87,7 @@ bool WillCollide(int x1, int y1) {
         PCoords.x = x1;
         PCoords.y = y1;
         map[PCoords.y][PCoords.x] = '&';
-         background.Draw(0, 0, false, 2);
+         background.Draw(disp, 0, 0, false, 2);
         return false;
     }
 }
@@ -190,7 +190,7 @@ int main(void) {
     map[PCoords.y][PCoords.x] = '&';
    
     DrawMap();
-    background.Draw(0, 0, false, 2);
+    background.Draw(disp, 0, 0, false, 2);
     
     curSpr = &profDown;
       weapon.x = 4;
@@ -256,11 +256,11 @@ int main(void) {
                 angle += 20;
             }
 
-            curSpr->Draw(curSprPos.x, curSprPos.y, true, 2);
+            curSpr->Draw(disp, curSprPos.x, curSprPos.y, true, 2);
             char buf[20];
             sprintf(buf, "X %d Y %d", curSprPos.x, curSprPos.y);
             DrawText(curSprPos.x-20 + sin(angle) * 3.1415f, curSprPos.y-60 + cos(angle) * 3.1415f, buf);
-            wiz.Draw(5, 40, false, 1);
+            wiz.Draw(disp, 5, 40, false, 1);
         }
         display_show(disp);
     }
