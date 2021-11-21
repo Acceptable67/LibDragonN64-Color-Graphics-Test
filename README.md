@@ -36,7 +36,7 @@ del %ROMNAME%.v64
 This is a C++ compatible LibDragon class engine that provides a decent framework
 for a potential library.
 
-<IMG SRC="https://i.gyazo.com/e36d6c135789f76bf6f79774a4d5ca8c.png"></IMG>
+<IMG SRC="https://i.gyazo.com/59d2ed4c79047a3a6a649c6650abd1b6.png"></IMG>
 ## ConsoleTestLib
 A test of geometric functions and color generation.
 
