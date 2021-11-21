@@ -50,6 +50,7 @@ public:
 	void Begin();
 	void Close();
 	void ClearScreen();
+	void SetScreen(resolution_t res, bitdepth_t bd);
 	uint32_t ScreenWidth();
 	uint32_t ScreenHeight();
 	void DrawText(int x, int y, const char* t, uint32_t c = WHITE);
