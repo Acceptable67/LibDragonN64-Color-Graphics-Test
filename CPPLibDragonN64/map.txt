@@ -165,376 +165,377 @@ LOAD extern_lib/libSprite.o
                 0x0000000000000000                __DYNAMIC = 0x0
                 0x0000000080400000                PROVIDE (__stack, 0x80400000)
 
-.text           0x0000000080000400     0xdec8 load address 0x0000000000000000
+.text           0x0000000080000400     0xdf08 load address 0x0000000000000000
  *(.boot)
  .boot          0x0000000080000400      0x160 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(entrypoint.o)
                 0x0000000080000400                _start
                 0x0000000080000560                . = ALIGN (0x10)
                 0x0000000080000560                __text_start = .
  *(.text)
- .text          0x0000000080000560      0x680 LibN64.o
+ .text          0x0000000080000560      0x6b8 LibN64.o
                 0x0000000080000580                LibN64::KeyDDPressed()
                 0x0000000080000598                LibN64::KeyZPressed()
-                0x0000000080000b08                LibN64::LibN64(resolution_t, bitdepth_t)
+                0x0000000080000b38                LibN64::LibN64(resolution_t, bitdepth_t)
                 0x00000000800005a8                LibN64::ScreenWidth()
                 0x0000000080000570                LibN64::KeyBPressed()
                 0x00000000800005b8                LibN64::Close()
-                0x0000000080000750                LibN64::DrawBox(int, int, int, unsigned long)
-                0x0000000080000a30                LibN64::LibN64(resolution_t, bitdepth_t)
+                0x0000000080000748                LibN64::DrawBox(int, int, int, unsigned long)
+                0x0000000080000a58                LibN64::LibN64(resolution_t, bitdepth_t)
                 0x0000000080000568                LibN64::KeyAPressed()
                 0x00000000800005b0                LibN64::ScreenHeight()
                 0x00000000800005c0                LibN64::DrawText(int, int, char const*, unsigned long)
                 0x0000000080000560                LibN64::FrameUpdate()
-                0x0000000080000990                LibN64::SetScreen(resolution_t, bitdepth_t)
+                0x00000000800009c0                LibN64::SetScreen(resolution_t, bitdepth_t)
                 0x0000000080000590                LibN64::KeyDRPressed()
                 0x00000000800005a0                LibN64::OnCreate()
-                0x0000000080000630                LibN64::DrawCircle(int, int, int, unsigned long)
+                0x0000000080000628                LibN64::DrawCircle(int, int, int, unsigned long)
                 0x0000000080000588                LibN64::KeyDLPressed()
                 0x0000000080000578                LibN64::KeyDUPressed()
-                0x0000000080000a20                LibN64::ClearScreen()
+                0x0000000080000a48                LibN64::ClearScreen()
                 0x0000000080000778                LibN64::Begin()
- .text          0x0000000080000be0       0x48 main.o
-                0x0000000080000be0                main
- .text          0x0000000080000c28      0x148 extern_lib/libSprite.o
-                0x0000000080000d30                libSprite::Ready(int, int, int*)
-                0x0000000080000c28                libSprite::Draw(int, int, int, bool, int)
- .text          0x0000000080000d70      0x614 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(interrupt.o)
-                0x0000000080001180                unregister_SP_handler
-                0x000000008000103c                register_PI_handler
-                0x0000000080000fac                register_AI_handler
-                0x0000000080001084                register_DP_handler
-                0x00000000800011d0                set_VI_interrupt
-                0x00000000800010a8                unregister_DP_handler
-                0x0000000080000fd0                unregister_AI_handler
-                0x0000000080001204                set_PI_interrupt
-                0x0000000080001060                unregister_PI_handler
-                0x0000000080000ff4                register_VI_handler
-                0x0000000080001230                set_DP_interrupt
-                0x0000000080001360                get_interrupts_state
-                0x00000000800011a4                set_AI_interrupt
-                0x00000000800012b4                init_interrupts
-                0x00000000800010cc                register_TI_handler
-                0x000000008000125c                set_SI_interrupt
-                0x00000000800010f0                unregister_TI_handler
-                0x00000000800012ec                disable_interrupts
-                0x0000000080001114                register_SI_handler
-                0x000000008000115c                register_SP_handler
-                0x0000000080001138                unregister_SI_handler
-                0x0000000080001288                set_SP_interrupt
-                0x0000000080000f8c                __TI_handler
-                0x0000000080001018                unregister_VI_handler
-                0x0000000080000e90                __MI_handler
-                0x000000008000132c                enable_interrupts
- .text          0x0000000080001384        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(entrypoint.o)
- .text          0x0000000080001384      0xef4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dragonfs.o)
-                0x00000000800020fc                dfs_size
-                0x00000000800021bc                dfs_init
-                0x0000000080001de8                dfs_seek
-                0x0000000080001c04                dfs_open
-                0x0000000080001af0                dfs_dir_findnext
-                0x0000000080001d90                dfs_close
-                0x00000000800019b4                dfs_dir_findfirst
-                0x0000000080001978                dfs_chdir
-                0x0000000080002188                dfs_eof
-                0x0000000080001ef4                dfs_read
-                0x0000000080001ea0                dfs_tell
- .text          0x0000000080002278      0x9b4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(display.o)
-                0x0000000080002bd8                display_show
-                0x0000000080002364                display_init_ex
-                0x0000000080002a5c                display_close
-                0x0000000080002a18                display_init
-                0x0000000080002b48                display_lock
- .text          0x0000000080002c2c      0xe68 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(controller.o)
-                0x0000000080003128                get_keys_up
-                0x0000000080003534                get_accessories_present
-                0x000000008000325c                get_keys_pressed
-                0x0000000080002f08                eeprom_present
-                0x0000000080002ecc                controller_init
-                0x0000000080003728                write_mempak_address
-                0x00000000800035e8                read_mempak_address
-                0x00000000800031c4                get_keys_held
-                0x0000000080002fa0                eeprom_write
-                0x0000000080002fec                controller_read
-                0x00000000800034cc                get_controllers_present
-                0x0000000080003984                identify_controller
-                0x00000000800032b0                get_dpad_direction
-                0x0000000080003a38                rumble_stop
-                0x000000008000308c                get_keys_down
-                0x0000000080002f48                eeprom_read
-                0x00000000800033e0                execute_raw_command
-                0x0000000080003010                controller_scan
-                0x00000000800039c4                rumble_start
-                0x000000008000386c                identify_accessory
- .text          0x0000000080003a94     0x1220 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(graphics.o)
-                0x0000000080003b44                graphics_set_color
-                0x0000000080003e8c                graphics_draw_line_trans
-                0x0000000080003d20                graphics_draw_line
-                0x00000000800043bc                graphics_draw_character
-                0x00000000800042bc                graphics_fill_screen
-                0x0000000080003be4                graphics_draw_pixel_trans
-                0x00000000800046b8                graphics_draw_sprite_stride
-                0x0000000080004910                graphics_draw_sprite
-                0x0000000080004104                graphics_draw_box_trans
-                0x00000000800045c4                graphics_draw_text
-                0x0000000080003b58                graphics_draw_pixel
-                0x0000000080003a94                graphics_convert_color
-                0x0000000080003b18                graphics_make_color
-                0x0000000080004930                graphics_draw_sprite_trans_stride
-                0x0000000080003ff8                graphics_draw_box
-                0x0000000080004c94                graphics_draw_sprite_trans
- .text          0x0000000080004cb4      0x1a8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dma.o)
-                0x0000000080004d44                dma_write
-                0x0000000080004cc4                dma_read
-                0x0000000080004e0c                io_write
-                0x0000000080004cb4                dma_busy
-                0x0000000080004dc4                io_read
- .text          0x0000000080004e5c      0x484 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(timer.o)
-                0x0000000080005244                timer_close
-                0x0000000080005210                delete_timer
-                0x0000000080005020                timer_init
-                0x000000008000517c                stop_timer
-                0x00000000800052ac                timer_ticks
-                0x0000000080005108                start_timer
-                0x0000000080005064                new_timer
- .text          0x00000000800052e0      0x1b0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(n64sys.o)
-                0x00000000800053dc                data_cache_hit_writeback_invalidate
-                0x0000000080005334                wait_ticks
-                0x0000000080005424                inst_cache_hit_writeback
-                0x000000008000546c                inst_cache_index_invalidate
-                0x0000000080005400                data_cache_index_writeback_invalidate
-                0x00000000800053b8                data_cache_hit_invalidate
-                0x00000000800052ec                sys_set_boot_cic
-                0x000000008000535c                wait_ms
-                0x0000000080005308                get_ticks
-                0x00000000800052e0                sys_get_boot_cic
-                0x0000000080005314                get_ticks_ms
-                0x0000000080005448                inst_cache_hit_invalidate
-                0x0000000080005394                data_cache_hit_writeback
- .text          0x0000000080005490      0x2f4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(inthandler.o)
-                0x0000000080005490                inthandler
- .text          0x0000000080005784       0xac C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(exception.o)
-                0x00000000800057e0                __onResetException
-                0x0000000080005790                __onCriticalException
-                0x0000000080005784                register_exception_handler
- .text          0x0000000080005830      0x110 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_cos.o)
-                0x0000000080005830                cosf
- .text          0x0000000080005940      0x110 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_sin.o)
-                0x0000000080005940                sinf
- .text          0x0000000080005a50      0x398 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
-                0x0000000080005a50                __ieee754_rem_pio2f
- .text          0x0000000080005de8      0x1a8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
-                0x0000000080005de8                __kernel_cosf
- .text          0x0000000080005f90      0x8f8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
-                0x0000000080005f90                __kernel_rem_pio2f
- .text          0x0000000080006888      0x110 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
-                0x0000000080006888                __kernel_sinf
- .text          0x0000000080006998       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_fabs.o)
-                0x0000000080006998                fabsf
- .text          0x00000000800069b8      0x108 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
-                0x00000000800069b8                floorf
- .text          0x0000000080006ac0      0x180 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
-                0x0000000080006ac0                scalbnf
- .text          0x0000000080006c40       0x30 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_copysign.o)
-                0x0000000080006c40                copysignf
- .text          0x0000000080006c70       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-malloc.o)
-                0x0000000080006c80                malloc
-                0x0000000080006c70                free
- .text          0x0000000080006c90      0x890 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mallocr.o)
-                0x0000000080006c90                _malloc_r
- .text          0x0000000080007520      0x160 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memcpy.o)
-                0x0000000080007520                memcpy
- .text          0x0000000080007680       0xf0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memset.o)
-                0x0000000080007680                memset
- .text          0x0000000080007770       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mlock.o)
-                0x0000000080007778                __malloc_unlock
-                0x0000000080007770                __malloc_lock
- .text          0x0000000080007780       0x68 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sbrkr.o)
-                0x0000000080007780                _sbrk_r
- .text          0x00000000800077e8       0xd0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sprintf.o)
-                0x0000000080007858                _sprintf_r
-                0x00000000800077e8                sprintf
- .text          0x00000000800078b8       0x78 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcmp.o)
-                0x00000000800078b8                strcmp
- .text          0x0000000080007930       0xb8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcpy.o)
-                0x0000000080007930                strcpy
- .text          0x00000000800079e8       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strlen.o)
-                0x00000000800079e8                strlen
- .text          0x0000000080007a00     0x1fa0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
-                0x0000000080007c80                _svfprintf_r
- .text          0x00000000800099a0     0x1528 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
-                0x0000000080009bd0                _dtoa_r
- .text          0x000000008000aec8      0x420 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-freer.o)
-                0x000000008000b000                _free_r
-                0x000000008000aec8                _malloc_trim_r
- .text          0x000000008000b2e8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
- .text          0x000000008000b2e8      0x100 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
-                0x000000008000b318                _setlocale_r
-                0x000000008000b2e8                __locale_charset
-                0x000000008000b2f8                _localeconv_r
-                0x000000008000b3d0                setlocale
-                0x000000008000b308                localeconv
- .text          0x000000008000b3e8       0xc0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memchr.o)
-                0x000000008000b3e8                memchr
- .text          0x000000008000b4a8      0x150 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memmove.o)
-                0x000000008000b4a8                memmove
- .text          0x000000008000b5f8     0x1220 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
-                0x000000008000bad0                _mprec_log10
-                0x000000008000bbb0                __any_on
-                0x000000008000bc60                _Balloc
-                0x000000008000b9f0                __ratio
-                0x000000008000c428                __i2b
-                0x000000008000b868                __b2d
-                0x000000008000c6c0                __s2b
-                0x000000008000b768                __mcmp
-                0x000000008000b628                __hi0bits
-                0x000000008000c588                __pow5mult
-                0x000000008000c078                __lshift
-                0x000000008000c1e8                __multiply
-                0x000000008000bd10                __d2b
-                0x000000008000bb18                __copybits
-                0x000000008000b7d0                __ulp
-                0x000000008000be90                __mdiff
-                0x000000008000b6a8                __lo0bits
-                0x000000008000c460                __multadd
-                0x000000008000b5f8                _Bfree
- .text          0x000000008000c818      0x5f8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reallocr.o)
-                0x000000008000c818                _realloc_r
- .text          0x000000008000ce10      0x230 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
-                0x000000008000cec8                cleanup_glue
-                0x000000008000cf10                _reclaim_reent
-                0x000000008000ce10                _wrapup_reent
- .text          0x000000008000d040       0x48 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isinfd.o)
-                0x000000008000d040                __isinfd
- .text          0x000000008000d088       0x40 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isnand.o)
-                0x000000008000d088                __isnand
- .text          0x000000008000d0c8       0xc0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-callocr.o)
-                0x000000008000d0c8                _calloc_r
- .text          0x000000008000d188      0xeb0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragonsys.a(system.o)
-                0x000000008000dd04                times
-                0x000000008000d670                detach_filesystem
-                0x000000008000d770                execve
-                0x000000008000d83c                getpid
-                0x000000008000dba4                readlink
-                0x000000008000d864                isatty
-                0x000000008000d8b0                lseek
-                0x000000008000d5e4                chown
-                0x000000008000ddc0                write
-                0x000000008000d7a0                fstat
-                0x000000008000d888                kill
-                0x000000008000ddac                wait
-                0x000000008000dab4                read
-                0x000000008000dd18                unlink
-                0x000000008000d428                attach_filesystem
-                0x000000008000d78c                fork
-                0x000000008000dbb8                sbrk
-                0x000000008000dcf0                symlink
-                0x000000008000d850                gettimeofday
-                0x000000008000dee8                dir_findfirst
-                0x000000008000dc84                stat
-                0x000000008000e01c                unhook_stdio_calls
-                0x000000008000dfe4                hook_stdio_calls
-                0x000000008000d89c                link
-                0x000000008000d784                exit
-                0x000000008000df84                dir_findnext
-                0x000000008000d944                open
-                0x000000008000d5f8                close
+ .text          0x0000000080000c18       0x48 main.o
+                0x0000000080000c18                main
+ .text          0x0000000080000c60      0x148 extern_lib/libSprite.o
+                0x0000000080000d68                libSprite::Ready(int, int, int*)
+                0x0000000080000c60                libSprite::Draw(int, int, int, bool, int)
+ .text          0x0000000080000da8      0x614 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(interrupt.o)
+                0x00000000800011b8                unregister_SP_handler
+                0x0000000080001074                register_PI_handler
+                0x0000000080000fe4                register_AI_handler
+                0x00000000800010bc                register_DP_handler
+                0x0000000080001208                set_VI_interrupt
+                0x00000000800010e0                unregister_DP_handler
+                0x0000000080001008                unregister_AI_handler
+                0x000000008000123c                set_PI_interrupt
+                0x0000000080001098                unregister_PI_handler
+                0x000000008000102c                register_VI_handler
+                0x0000000080001268                set_DP_interrupt
+                0x0000000080001398                get_interrupts_state
+                0x00000000800011dc                set_AI_interrupt
+                0x00000000800012ec                init_interrupts
+                0x0000000080001104                register_TI_handler
+                0x0000000080001294                set_SI_interrupt
+                0x0000000080001128                unregister_TI_handler
+                0x0000000080001324                disable_interrupts
+                0x000000008000114c                register_SI_handler
+                0x0000000080001194                register_SP_handler
+                0x0000000080001170                unregister_SI_handler
+                0x00000000800012c0                set_SP_interrupt
+                0x0000000080000fc4                __TI_handler
+                0x0000000080001050                unregister_VI_handler
+                0x0000000080000ec8                __MI_handler
+                0x0000000080001364                enable_interrupts
+ .text          0x00000000800013bc        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(entrypoint.o)
+ .text          0x00000000800013bc      0xef4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dragonfs.o)
+                0x0000000080002134                dfs_size
+                0x00000000800021f4                dfs_init
+                0x0000000080001e20                dfs_seek
+                0x0000000080001c3c                dfs_open
+                0x0000000080001b28                dfs_dir_findnext
+                0x0000000080001dc8                dfs_close
+                0x00000000800019ec                dfs_dir_findfirst
+                0x00000000800019b0                dfs_chdir
+                0x00000000800021c0                dfs_eof
+                0x0000000080001f2c                dfs_read
+                0x0000000080001ed8                dfs_tell
+ .text          0x00000000800022b0      0x9b4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(display.o)
+                0x0000000080002c10                display_show
+                0x000000008000239c                display_init_ex
+                0x0000000080002a94                display_close
+                0x0000000080002a50                display_init
+                0x0000000080002b80                display_lock
+ .text          0x0000000080002c64      0xe68 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(controller.o)
+                0x0000000080003160                get_keys_up
+                0x000000008000356c                get_accessories_present
+                0x0000000080003294                get_keys_pressed
+                0x0000000080002f40                eeprom_present
+                0x0000000080002f04                controller_init
+                0x0000000080003760                write_mempak_address
+                0x0000000080003620                read_mempak_address
+                0x00000000800031fc                get_keys_held
+                0x0000000080002fd8                eeprom_write
+                0x0000000080003024                controller_read
+                0x0000000080003504                get_controllers_present
+                0x00000000800039bc                identify_controller
+                0x00000000800032e8                get_dpad_direction
+                0x0000000080003a70                rumble_stop
+                0x00000000800030c4                get_keys_down
+                0x0000000080002f80                eeprom_read
+                0x0000000080003418                execute_raw_command
+                0x0000000080003048                controller_scan
+                0x00000000800039fc                rumble_start
+                0x00000000800038a4                identify_accessory
+ .text          0x0000000080003acc     0x1220 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(graphics.o)
+                0x0000000080003b7c                graphics_set_color
+                0x0000000080003ec4                graphics_draw_line_trans
+                0x0000000080003d58                graphics_draw_line
+                0x00000000800043f4                graphics_draw_character
+                0x00000000800042f4                graphics_fill_screen
+                0x0000000080003c1c                graphics_draw_pixel_trans
+                0x00000000800046f0                graphics_draw_sprite_stride
+                0x0000000080004948                graphics_draw_sprite
+                0x000000008000413c                graphics_draw_box_trans
+                0x00000000800045fc                graphics_draw_text
+                0x0000000080003b90                graphics_draw_pixel
+                0x0000000080003acc                graphics_convert_color
+                0x0000000080003b50                graphics_make_color
+                0x0000000080004968                graphics_draw_sprite_trans_stride
+                0x0000000080004030                graphics_draw_box
+                0x0000000080004ccc                graphics_draw_sprite_trans
+ .text          0x0000000080004cec      0x1a8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dma.o)
+                0x0000000080004d7c                dma_write
+                0x0000000080004cfc                dma_read
+                0x0000000080004e44                io_write
+                0x0000000080004cec                dma_busy
+                0x0000000080004dfc                io_read
+ .text          0x0000000080004e94      0x484 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(timer.o)
+                0x000000008000527c                timer_close
+                0x0000000080005248                delete_timer
+                0x0000000080005058                timer_init
+                0x00000000800051b4                stop_timer
+                0x00000000800052e4                timer_ticks
+                0x0000000080005140                start_timer
+                0x000000008000509c                new_timer
+ .text          0x0000000080005318      0x1b0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(n64sys.o)
+                0x0000000080005414                data_cache_hit_writeback_invalidate
+                0x000000008000536c                wait_ticks
+                0x000000008000545c                inst_cache_hit_writeback
+                0x00000000800054a4                inst_cache_index_invalidate
+                0x0000000080005438                data_cache_index_writeback_invalidate
+                0x00000000800053f0                data_cache_hit_invalidate
+                0x0000000080005324                sys_set_boot_cic
+                0x0000000080005394                wait_ms
+                0x0000000080005340                get_ticks
+                0x0000000080005318                sys_get_boot_cic
+                0x000000008000534c                get_ticks_ms
+                0x0000000080005480                inst_cache_hit_invalidate
+                0x00000000800053cc                data_cache_hit_writeback
+ .text          0x00000000800054c8      0x2f4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(inthandler.o)
+                0x00000000800054c8                inthandler
+ .text          0x00000000800057bc       0xac C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(exception.o)
+                0x0000000080005818                __onResetException
+                0x00000000800057c8                __onCriticalException
+                0x00000000800057bc                register_exception_handler
+ .text          0x0000000080005868      0x110 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_cos.o)
+                0x0000000080005868                cosf
+ .text          0x0000000080005978      0x110 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_sin.o)
+                0x0000000080005978                sinf
+ .text          0x0000000080005a88      0x398 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
+                0x0000000080005a88                __ieee754_rem_pio2f
+ .text          0x0000000080005e20      0x1a8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
+                0x0000000080005e20                __kernel_cosf
+ .text          0x0000000080005fc8      0x8f8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
+                0x0000000080005fc8                __kernel_rem_pio2f
+ .text          0x00000000800068c0      0x110 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
+                0x00000000800068c0                __kernel_sinf
+ .text          0x00000000800069d0       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_fabs.o)
+                0x00000000800069d0                fabsf
+ .text          0x00000000800069f0      0x108 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
+                0x00000000800069f0                floorf
+ .text          0x0000000080006af8      0x180 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
+                0x0000000080006af8                scalbnf
+ .text          0x0000000080006c78       0x30 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_copysign.o)
+                0x0000000080006c78                copysignf
+ .text          0x0000000080006ca8       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-malloc.o)
+                0x0000000080006cb8                malloc
+                0x0000000080006ca8                free
+ .text          0x0000000080006cc8      0x890 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mallocr.o)
+                0x0000000080006cc8                _malloc_r
+ .text          0x0000000080007558      0x160 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memcpy.o)
+                0x0000000080007558                memcpy
+ .text          0x00000000800076b8       0xf0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memset.o)
+                0x00000000800076b8                memset
+ .text          0x00000000800077a8       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mlock.o)
+                0x00000000800077b0                __malloc_unlock
+                0x00000000800077a8                __malloc_lock
+ .text          0x00000000800077b8       0x68 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sbrkr.o)
+                0x00000000800077b8                _sbrk_r
+ .text          0x0000000080007820       0xd0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sprintf.o)
+                0x0000000080007890                _sprintf_r
+                0x0000000080007820                sprintf
+ .text          0x00000000800078f0       0x78 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcmp.o)
+                0x00000000800078f0                strcmp
+ .text          0x0000000080007968       0xb8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcpy.o)
+                0x0000000080007968                strcpy
+ .text          0x0000000080007a20       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strlen.o)
+                0x0000000080007a20                strlen
+ .text          0x0000000080007a38     0x1fa0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
+                0x0000000080007cb8                _svfprintf_r
+ .text          0x00000000800099d8     0x1528 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
+                0x0000000080009c08                _dtoa_r
+ .text          0x000000008000af00      0x420 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-freer.o)
+                0x000000008000b038                _free_r
+                0x000000008000af00                _malloc_trim_r
+ .text          0x000000008000b320        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
+ .text          0x000000008000b320      0x100 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
+                0x000000008000b350                _setlocale_r
+                0x000000008000b320                __locale_charset
+                0x000000008000b330                _localeconv_r
+                0x000000008000b408                setlocale
+                0x000000008000b340                localeconv
+ .text          0x000000008000b420       0xc0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memchr.o)
+                0x000000008000b420                memchr
+ .text          0x000000008000b4e0      0x150 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memmove.o)
+                0x000000008000b4e0                memmove
+ .text          0x000000008000b630     0x1220 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
+                0x000000008000bb08                _mprec_log10
+                0x000000008000bbe8                __any_on
+                0x000000008000bc98                _Balloc
+                0x000000008000ba28                __ratio
+                0x000000008000c460                __i2b
+                0x000000008000b8a0                __b2d
+                0x000000008000c6f8                __s2b
+                0x000000008000b7a0                __mcmp
+                0x000000008000b660                __hi0bits
+                0x000000008000c5c0                __pow5mult
+                0x000000008000c0b0                __lshift
+                0x000000008000c220                __multiply
+                0x000000008000bd48                __d2b
+                0x000000008000bb50                __copybits
+                0x000000008000b808                __ulp
+                0x000000008000bec8                __mdiff
+                0x000000008000b6e0                __lo0bits
+                0x000000008000c498                __multadd
+                0x000000008000b630                _Bfree
+ .text          0x000000008000c850      0x5f8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reallocr.o)
+                0x000000008000c850                _realloc_r
+ .text          0x000000008000ce48      0x230 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
+                0x000000008000cf00                cleanup_glue
+                0x000000008000cf48                _reclaim_reent
+                0x000000008000ce48                _wrapup_reent
+ .text          0x000000008000d078       0x48 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isinfd.o)
+                0x000000008000d078                __isinfd
+ .text          0x000000008000d0c0       0x40 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isnand.o)
+                0x000000008000d0c0                __isnand
+ .text          0x000000008000d100       0xc0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-callocr.o)
+                0x000000008000d100                _calloc_r
+ .text          0x000000008000d1c0      0xeb0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragonsys.a(system.o)
+                0x000000008000dd3c                times
+                0x000000008000d6a8                detach_filesystem
+                0x000000008000d7a8                execve
+                0x000000008000d874                getpid
+                0x000000008000dbdc                readlink
+                0x000000008000d89c                isatty
+                0x000000008000d8e8                lseek
+                0x000000008000d61c                chown
+                0x000000008000ddf8                write
+                0x000000008000d7d8                fstat
+                0x000000008000d8c0                kill
+                0x000000008000dde4                wait
+                0x000000008000daec                read
+                0x000000008000dd50                unlink
+                0x000000008000d460                attach_filesystem
+                0x000000008000d7c4                fork
+                0x000000008000dbf0                sbrk
+                0x000000008000dd28                symlink
+                0x000000008000d888                gettimeofday
+                0x000000008000df20                dir_findfirst
+                0x000000008000dcbc                stat
+                0x000000008000e054                unhook_stdio_calls
+                0x000000008000e01c                hook_stdio_calls
+                0x000000008000d8d4                link
+                0x000000008000d7bc                exit
+                0x000000008000dfbc                dir_findnext
+                0x000000008000d97c                open
+                0x000000008000d630                close
  *(.text.*)
  *(.gnu.linkonce.t.*)
  .gnu.linkonce.t._ZN8Instance8OnCreateEv
-                0x000000008000e038       0x48 main.o
-                0x000000008000e038                Instance::OnCreate()
+                0x000000008000e070       0x48 main.o
+                0x000000008000e070                Instance::OnCreate()
  .gnu.linkonce.t._ZN8Instance11KeyZPressedEv
-                0x000000008000e080       0x30 main.o
-                0x000000008000e080                Instance::KeyZPressed()
+                0x000000008000e0b8       0x30 main.o
+                0x000000008000e0b8                Instance::KeyZPressed()
  .gnu.linkonce.t._ZN8Instance11KeyBPressedEv
-                0x000000008000e0b0        0x8 main.o
-                0x000000008000e0b0                Instance::KeyBPressed()
+                0x000000008000e0e8        0x8 main.o
+                0x000000008000e0e8                Instance::KeyBPressed()
  .gnu.linkonce.t._ZN8Instance11KeyAPressedEv
-                0x000000008000e0b8       0x50 main.o
-                0x000000008000e0b8                Instance::KeyAPressed()
+                0x000000008000e0f0       0x50 main.o
+                0x000000008000e0f0                Instance::KeyAPressed()
  .gnu.linkonce.t._ZN6LibN6414DrawTextFormatIffEEviiPcT_T0_
-                0x000000008000e108       0xb0 main.o
-                0x000000008000e108                void LibN64::DrawTextFormat<float, float>(int, int, char*, float, float)
+                0x000000008000e140       0xa8 main.o
+                0x000000008000e140                void LibN64::DrawTextFormat<float, float>(int, int, char*, float, float)
  .gnu.linkonce.t._ZN8Instance11FrameUpdateEv
-                0x000000008000e1b8       0xf8 main.o
-                0x000000008000e1b8                Instance::FrameUpdate()
-                0x000000008000e2b0                . = ALIGN (0x10)
-                0x000000008000e2b0                __INIT_SECTION__ = .
+                0x000000008000e1e8      0x100 main.o
+                0x000000008000e1e8                Instance::FrameUpdate()
+                0x000000008000e2f0                . = ALIGN (0x10)
+ *fill*         0x000000008000e2e8        0x8 00
+                0x000000008000e2f0                __INIT_SECTION__ = .
  *(.init)
-                0x000000008000e2b0        0x4 LONG 0x3e00008
-                0x000000008000e2b4        0x4 LONG 0x0
-                0x000000008000e2c0                . = ALIGN (0x10)
- *fill*         0x000000008000e2b8        0x8 00
-                0x000000008000e2c0                __FINI_SECTION__ = .
+                0x000000008000e2f0        0x4 LONG 0x3e00008
+                0x000000008000e2f4        0x4 LONG 0x0
+                0x000000008000e300                . = ALIGN (0x10)
+ *fill*         0x000000008000e2f8        0x8 00
+                0x000000008000e300                __FINI_SECTION__ = .
  *(.fini)
-                0x000000008000e2c0        0x4 LONG 0x3e00008
-                0x000000008000e2c4        0x4 LONG 0x0
+                0x000000008000e300        0x4 LONG 0x3e00008
+                0x000000008000e304        0x4 LONG 0x0
 
 .eh_frame_hdr
  *(.eh_frame_hdr)
 
-.eh_frame       0x000000008000e2c8      0x6a4 load address 0x000000000000dec8
+.eh_frame       0x000000008000e308      0x6a4 load address 0x000000000000df08
  *(.eh_frame)
- .eh_frame      0x000000008000e2c8       0x2c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_cos.o)
- .eh_frame      0x000000008000e2f4       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_sin.o)
+ .eh_frame      0x000000008000e308       0x2c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_cos.o)
+ .eh_frame      0x000000008000e334       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_sin.o)
                                          0x2c (size before relaxing)
- .eh_frame      0x000000008000e30c       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
+ .eh_frame      0x000000008000e34c       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
                                          0x34 (size before relaxing)
- .eh_frame      0x000000008000e32c       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
+ .eh_frame      0x000000008000e36c       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e340       0x40 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
+ .eh_frame      0x000000008000e380       0x40 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
                                          0x54 (size before relaxing)
- .eh_frame      0x000000008000e380       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
+ .eh_frame      0x000000008000e3c0       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e394       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_fabs.o)
+ .eh_frame      0x000000008000e3d4       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_fabs.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e3a8       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
+ .eh_frame      0x000000008000e3e8       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e3bc       0x1c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
+ .eh_frame      0x000000008000e3fc       0x1c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
                                          0x30 (size before relaxing)
- .eh_frame      0x000000008000e3d8       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_copysign.o)
+ .eh_frame      0x000000008000e418       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_copysign.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e3ec       0x28 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-malloc.o)
+ .eh_frame      0x000000008000e42c       0x28 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-malloc.o)
                                          0x3c (size before relaxing)
- .eh_frame      0x000000008000e414       0x2c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mallocr.o)
+ .eh_frame      0x000000008000e454       0x2c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mallocr.o)
                                          0x40 (size before relaxing)
- .eh_frame      0x000000008000e440       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memcpy.o)
+ .eh_frame      0x000000008000e480       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memcpy.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e454       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memset.o)
+ .eh_frame      0x000000008000e494       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memset.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e468       0x28 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mlock.o)
+ .eh_frame      0x000000008000e4a8       0x28 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mlock.o)
                                          0x3c (size before relaxing)
- .eh_frame      0x000000008000e490       0x1c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sbrkr.o)
+ .eh_frame      0x000000008000e4d0       0x1c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sbrkr.o)
                                          0x30 (size before relaxing)
- .eh_frame      0x000000008000e4ac       0x38 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sprintf.o)
+ .eh_frame      0x000000008000e4ec       0x38 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sprintf.o)
                                          0x4c (size before relaxing)
- .eh_frame      0x000000008000e4e4       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcmp.o)
+ .eh_frame      0x000000008000e524       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcmp.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e4f8       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcpy.o)
+ .eh_frame      0x000000008000e538       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcpy.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e50c       0x5c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
+ .eh_frame      0x000000008000e54c       0x5c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
                                          0x70 (size before relaxing)
- .eh_frame      0x000000008000e568       0x54 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
+ .eh_frame      0x000000008000e5a8       0x54 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
                                          0x68 (size before relaxing)
- .eh_frame      0x000000008000e5bc       0x3c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-freer.o)
+ .eh_frame      0x000000008000e5fc       0x3c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-freer.o)
                                          0x50 (size before relaxing)
- .eh_frame      0x000000008000e5f8       0x70 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
+ .eh_frame      0x000000008000e638       0x70 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
                                          0x84 (size before relaxing)
- .eh_frame      0x000000008000e668       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memchr.o)
+ .eh_frame      0x000000008000e6a8       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memchr.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e67c       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memmove.o)
+ .eh_frame      0x000000008000e6bc       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memmove.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e690      0x210 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
+ .eh_frame      0x000000008000e6d0      0x210 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
                                         0x224 (size before relaxing)
- .eh_frame      0x000000008000e8a0       0x2c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reallocr.o)
+ .eh_frame      0x000000008000e8e0       0x2c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reallocr.o)
                                          0x40 (size before relaxing)
- .eh_frame      0x000000008000e8cc       0x5c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
+ .eh_frame      0x000000008000e90c       0x5c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
                                          0x70 (size before relaxing)
- .eh_frame      0x000000008000e928       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isinfd.o)
+ .eh_frame      0x000000008000e968       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isinfd.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e93c       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isnand.o)
+ .eh_frame      0x000000008000e97c       0x14 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isnand.o)
                                          0x28 (size before relaxing)
- .eh_frame      0x000000008000e950       0x1c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-callocr.o)
+ .eh_frame      0x000000008000e990       0x1c C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-callocr.o)
                                          0x30 (size before relaxing)
 
 .gcc_except_table
@@ -543,165 +544,165 @@ LOAD extern_lib/libSprite.o
 .jcr
  *(.jcr)
 
-.ctors          0x000000008000e96c        0xc load address 0x000000000000e56c
-                0x000000008000e970                . = ALIGN (0x10)
- *fill*         0x000000008000e96c        0x4 00
-                0x000000008000e970                __CTOR_LIST__ = .
-                0x000000008000e970                ___CTOR_LIST__ = .
-                0x000000008000e970        0x4 LONG 0x0 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
+.ctors          0x000000008000e9ac        0xc load address 0x000000000000e5ac
+                0x000000008000e9b0                . = ALIGN (0x10)
+ *fill*         0x000000008000e9ac        0x4 00
+                0x000000008000e9b0                __CTOR_LIST__ = .
+                0x000000008000e9b0                ___CTOR_LIST__ = .
+                0x000000008000e9b0        0x4 LONG 0x0 (((__CTOR_END__ - __CTOR_LIST__) / 0x4) - 0x2)
  *(SORT(.ctors.*))
  *(.ctors)
-                0x000000008000e974        0x4 LONG 0x0
-                0x000000008000e978                __CTOR_END__ = .
+                0x000000008000e9b4        0x4 LONG 0x0
+                0x000000008000e9b8                __CTOR_END__ = .
 
-.dtors          0x000000008000e978       0x10 load address 0x000000000000e578
-                0x000000008000e980                . = ALIGN (0x10)
- *fill*         0x000000008000e978        0x8 00
-                0x000000008000e980                __DTOR_LIST__ = .
-                0x000000008000e980                ___DTOR_LIST__ = .
-                0x000000008000e980        0x4 LONG 0x0 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
+.dtors          0x000000008000e9b8       0x10 load address 0x000000000000e5b8
+                0x000000008000e9c0                . = ALIGN (0x10)
+ *fill*         0x000000008000e9b8        0x8 00
+                0x000000008000e9c0                __DTOR_LIST__ = .
+                0x000000008000e9c0                ___DTOR_LIST__ = .
+                0x000000008000e9c0        0x4 LONG 0x0 (((__DTOR_END__ - __DTOR_LIST__) / 0x4) - 0x2)
  *(SORT(.dtors.*))
  *(.dtors)
-                0x000000008000e984        0x4 LONG 0x0
-                0x000000008000e988                __DTOR_END__ = .
-                0x000000008000e988                . = .
+                0x000000008000e9c4        0x4 LONG 0x0
+                0x000000008000e9c8                __DTOR_END__ = .
+                0x000000008000e9c8                . = .
 
-.rodata         0x000000008000e988     0x1160 load address 0x000000000000e588
+.rodata         0x000000008000e9c8     0x1160 load address 0x000000000000e5c8
  *(.rdata)
  *(.rodata)
- .rodata        0x000000008000e988       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(controller.o)
- .rodata        0x000000008000e9a8      0x800 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(graphics.o)
- .rodata        0x000000008000f1a8      0x398 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
- .rodata        0x000000008000f540       0x40 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
- .rodata        0x000000008000f580      0x188 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
- .rodata        0x000000008000f708       0x38 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
- .rodata        0x000000008000f740      0x128 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
-                0x000000008000f830                __mprec_tinytens
-                0x000000008000f740                __mprec_tens
-                0x000000008000f808                __mprec_bigtens
+ .rodata        0x000000008000e9c8       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(controller.o)
+ .rodata        0x000000008000e9e8      0x800 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(graphics.o)
+ .rodata        0x000000008000f1e8      0x398 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
+ .rodata        0x000000008000f580       0x40 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
+ .rodata        0x000000008000f5c0      0x188 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
+ .rodata        0x000000008000f748       0x38 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
+ .rodata        0x000000008000f780      0x128 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
+                0x000000008000f870                __mprec_tinytens
+                0x000000008000f780                __mprec_tens
+                0x000000008000f848                __mprec_bigtens
  *(.rodata.*)
- .rodata.cst4   0x000000008000f868        0x4 LibN64.o
- *fill*         0x000000008000f86c        0x4 00
+ .rodata.cst4   0x000000008000f8a8        0x4 LibN64.o
+ *fill*         0x000000008000f8ac        0x4 00
  .rodata.str1.8
-                0x000000008000f870       0x64 main.o
+                0x000000008000f8b0       0x64 main.o
                                          0x68 (size before relaxing)
- *fill*         0x000000008000f8d4        0x4 00
- .rodata.cst8   0x000000008000f8d8       0x10 main.o
+ *fill*         0x000000008000f914        0x4 00
+ .rodata.cst8   0x000000008000f918       0x10 main.o
  .rodata.str1.8
-                0x000000008000f8e8       0x1e C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dragonfs.o)
+                0x000000008000f928       0x1e C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dragonfs.o)
                                          0x20 (size before relaxing)
- *fill*         0x000000008000f906        0x2 00
+ *fill*         0x000000008000f946        0x2 00
  .rodata.str1.8
-                0x000000008000f908       0x22 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(exception.o)
+                0x000000008000f948       0x22 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(exception.o)
                                          0x28 (size before relaxing)
- *fill*         0x000000008000f92a        0x2 00
- .rodata.cst4   0x000000008000f92c       0x28 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
- .rodata.cst4   0x000000008000f954       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
+ *fill*         0x000000008000f96a        0x2 00
+ .rodata.cst4   0x000000008000f96c       0x28 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
+ .rodata.cst4   0x000000008000f994       0x20 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
                                          0x24 (size before relaxing)
- .rodata.cst4   0x000000008000f974       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
+ .rodata.cst4   0x000000008000f9b4       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
                                          0x1c (size before relaxing)
- .rodata.cst4   0x000000008000f984       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
+ .rodata.cst4   0x000000008000f9c4       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
                                          0x1c (size before relaxing)
- .rodata.cst4   0x000000008000f99c        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
- .rodata.cst4   0x000000008000f9a0        0xc C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
+ .rodata.cst4   0x000000008000f9dc        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
+ .rodata.cst4   0x000000008000f9e0        0xc C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
                                          0x10 (size before relaxing)
- *fill*         0x000000008000f9ac        0x4 00
+ *fill*         0x000000008000f9ec        0x4 00
  .rodata.str1.8
-                0x000000008000f9b0       0x5a C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
+                0x000000008000f9f0       0x5a C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
                                          0x60 (size before relaxing)
- *fill*         0x000000008000fa0a        0x6 00
+ *fill*         0x000000008000fa4a        0x6 00
  .rodata.str1.8
-                0x000000008000fa10       0x11 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
+                0x000000008000fa50       0x11 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
                                          0x20 (size before relaxing)
- *fill*         0x000000008000fa21        0x7 00
- .rodata.cst8   0x000000008000fa28       0x48 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
+ *fill*         0x000000008000fa61        0x7 00
+ .rodata.cst8   0x000000008000fa68       0x48 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
  .rodata.str1.8
-                0x000000008000fa70        0x2 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
+                0x000000008000fab0        0x2 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
                                           0x8 (size before relaxing)
- *fill*         0x000000008000fa72        0x6 00
+ *fill*         0x000000008000fab2        0x6 00
  .rodata.str1.8
-                0x000000008000fa78       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
+                0x000000008000fab8       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
                                          0x28 (size before relaxing)
  .rodata.cst8   0x0000000000000000       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
  *(.gnu.linkonce.r.*)
  .gnu.linkonce.r._ZTV6LibN64
-                0x000000008000fa88       0x30 LibN64.o
-                0x000000008000fa88                vtable for LibN64
+                0x000000008000fac8       0x30 LibN64.o
+                0x000000008000fac8                vtable for LibN64
  .gnu.linkonce.r._ZTV8Instance
-                0x000000008000fab8       0x30 main.o
-                0x000000008000fab8                vtable for Instance
+                0x000000008000faf8       0x30 main.o
+                0x000000008000faf8                vtable for Instance
 
-.rel.dyn        0x000000008000e988        0x0
+.rel.dyn        0x000000008000e9c8        0x0
  .rel.dyn       0x0000000000000000        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(inthandler.o)
-                0x000000008000e990                . = ALIGN (0x10)
-                0x000000008000e990                __text_end = .
+                0x000000008000e9d0                . = ALIGN (0x10)
+                0x000000008000e9d0                __text_end = .
 
-.data           0x000000008000fae8     0x6ba8 load address 0x000000000000f6e8
-                0x000000008000fae8                __data_start = .
+.data           0x000000008000fb28     0x6ba8 load address 0x000000000000f728
+                0x000000008000fb28                __data_start = .
  *(.data)
- .data          0x000000008000fae8        0x0 LibN64.o
- .data          0x000000008000fae8     0x6180 main.o
-                0x000000008000fae8                n64logo
- .data          0x0000000080015c68        0x0 extern_lib/libSprite.o
- .data          0x0000000080015c68        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(interrupt.o)
- .data          0x0000000080015c6c        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(entrypoint.o)
- *fill*         0x0000000080015c6c        0x4 00
- .data          0x0000000080015c70       0x30 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dragonfs.o)
- .data          0x0000000080015ca0       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(display.o)
-                0x0000000080015cac                __buffers
- .data          0x0000000080015cb0      0x180 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(controller.o)
- .data          0x0000000080015e30        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(graphics.o)
- .data          0x0000000080015e34        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dma.o)
- .data          0x0000000080015e34        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(timer.o)
- .data          0x0000000080015e34        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(n64sys.o)
-                0x0000000080015e34                __bootcic
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(inthandler.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(exception.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_cos.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_sin.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_fabs.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_copysign.o)
- .data          0x0000000080015e38        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-malloc.o)
- .data          0x0000000080015e38      0x410 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mallocr.o)
-                0x0000000080016244                __malloc_sbrk_base
-                0x0000000080015e38                __malloc_av_
-                0x0000000080016240                __malloc_trim_threshold
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memcpy.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memset.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mlock.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sbrkr.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sprintf.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcmp.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcpy.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strlen.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
- .data          0x0000000080016248        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-freer.o)
- .data          0x0000000080016248      0x428 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
- .data          0x0000000080016670       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
-                0x0000000080016670                __mb_cur_max
-                0x0000000080016678                __lc_ctype
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memchr.o)
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memmove.o)
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reallocr.o)
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isinfd.o)
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isnand.o)
- .data          0x0000000080016688        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-callocr.o)
- .data          0x0000000080016688        0x8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragonsys.a(system.o)
-                0x000000008001668c                environ
+ .data          0x000000008000fb28        0x0 LibN64.o
+ .data          0x000000008000fb28     0x6180 main.o
+                0x000000008000fb28                n64logo
+ .data          0x0000000080015ca8        0x0 extern_lib/libSprite.o
+ .data          0x0000000080015ca8        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(interrupt.o)
+ .data          0x0000000080015cac        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(entrypoint.o)
+ *fill*         0x0000000080015cac        0x4 00
+ .data          0x0000000080015cb0       0x30 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dragonfs.o)
+ .data          0x0000000080015ce0       0x10 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(display.o)
+                0x0000000080015cec                __buffers
+ .data          0x0000000080015cf0      0x180 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(controller.o)
+ .data          0x0000000080015e70        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(graphics.o)
+ .data          0x0000000080015e74        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(dma.o)
+ .data          0x0000000080015e74        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(timer.o)
+ .data          0x0000000080015e74        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(n64sys.o)
+                0x0000000080015e74                __bootcic
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(inthandler.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(exception.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_cos.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_sin.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-ef_rem_pio2.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_cos.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_rem_pio2.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-kf_sin.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_fabs.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_floor.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_scalbn.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libm.a(lib_a-sf_copysign.o)
+ .data          0x0000000080015e78        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-malloc.o)
+ .data          0x0000000080015e78      0x410 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mallocr.o)
+                0x0000000080016284                __malloc_sbrk_base
+                0x0000000080015e78                __malloc_av_
+                0x0000000080016280                __malloc_trim_threshold
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memcpy.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memset.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mlock.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sbrkr.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-sprintf.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcmp.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strcpy.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-strlen.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-svfprintf.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-dtoa.o)
+ .data          0x0000000080016288        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-freer.o)
+ .data          0x0000000080016288      0x428 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
+ .data          0x00000000800166b0       0x18 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-locale.o)
+                0x00000000800166b0                __mb_cur_max
+                0x00000000800166b8                __lc_ctype
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memchr.o)
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-memmove.o)
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-mprec.o)
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reallocr.o)
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isinfd.o)
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-s_isnand.o)
+ .data          0x00000000800166c8        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-callocr.o)
+ .data          0x00000000800166c8        0x8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragonsys.a(system.o)
+                0x00000000800166cc                environ
  *(.data.*)
  *(.gnu.linkonce.d.*)
-                0x0000000080016690                . = ALIGN (0x8)
-                0x000000008001e690                _gp = (. + 0x8000)
-                0x000000008001e690                __global = _gp
+                0x00000000800166d0                . = ALIGN (0x8)
+                0x000000008001e6d0                _gp = (. + 0x8000)
+                0x000000008001e6d0                __global = _gp
 
 .lit8
  *(.lit8)
@@ -709,30 +710,30 @@ LOAD extern_lib/libSprite.o
 .lit4
  *(.lit4)
 
-.sdata          0x0000000080016690        0x8 load address 0x0000000000016290
+.sdata          0x00000000800166d0        0x8 load address 0x00000000000162d0
  *(.sdata)
- .sdata         0x0000000080016690        0x8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
-                0x0000000080016694                _global_impure_ptr
-                0x0000000080016690                _impure_ptr
+ .sdata         0x00000000800166d0        0x8 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-impure.o)
+                0x00000000800166d4                _global_impure_ptr
+                0x00000000800166d0                _impure_ptr
  *(.sdata.*)
  *(.gnu.linkonce.s.*)
-                0x0000000080016698                . = ALIGN (0x8)
-                0x0000000080016698                __data_end = .
+                0x00000000800166d8                . = ALIGN (0x8)
+                0x00000000800166d8                __data_end = .
 
-.sbss           0x0000000080016698      0x228 load address 0x0000000000016298
-                0x0000000080016698                __bss_start = .
+.sbss           0x00000000800166d8      0x228 load address 0x00000000000162d8
+                0x00000000800166d8                __bss_start = .
  *(.sbss)
- .sbss          0x0000000080016698      0x218 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(inthandler.o)
+ .sbss          0x00000000800166d8      0x218 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(inthandler.o)
  *(.sbss.*)
  *(.gnu.linkonce.sb.*)
  *(.scommon)
- .scommon       0x00000000800168b0        0xc C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(display.o)
-                0x00000000800168b0                __width
-                0x00000000800168b4                __bitdepth
-                0x00000000800168b8                __height
- .scommon       0x00000000800168bc        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
-                0x00000000800168bc                errno
- .scommon       0x00000000800168c0        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragonsys.a(system.o)
+ .scommon       0x00000000800168f0        0xc C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragon.a(display.o)
+                0x00000000800168f0                __width
+                0x00000000800168f4                __bitdepth
+                0x00000000800168f8                __height
+ .scommon       0x00000000800168fc        0x4 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib\libc.a(lib_a-reent.o)
+                0x00000000800168fc                errno
+ .scommon       0x0000000080016900        0x0 C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib\libdragonsys.a(system.o)
 
 .bss            0x0000000080016900    0x116ec load address 0x0000000000016500
  *(.bss)
