@@ -173,7 +173,7 @@ int main() {
 
 	int cx = 260, cy = 160;
 	__header();
-	while (running) {
+	while (running)  
 
 		controller_scan();
 		controller_data keys = get_keys_down();

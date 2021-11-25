@@ -37,7 +37,7 @@ private:
 
 	void DrawFrame();
 public:
-	display_context_t LibN64_Display;
+	static display_context_t LibN64_Display;
 
 	const char* romTitle;
 	bool lActive;
@@ -73,16 +73,10 @@ public:
 		graphics_draw_text(LibN64_Display, x, y, buffer);
 	}
 
-
-#ifdef _ALTERNATE_DTF
-/*Functions are refusing to compile*/
-#define DrawTextDFormat(x,y,buf,arg) char buffer[strlen(buf)]; \
-									sprintf(buffer, buf, arg); \
-									graphics_draw_text(LibN64_Display, x, y, buffer); \
-
-#define DrawTextDDFormat(x,y,buf,arg,arg2) char buffer[strlen(buf)]; \
-									sprintf(buffer, buf, arg, arg2); \
-									graphics_draw_text(LibN64_Display, x, y, buffer); \
-
-#endif
+	template<class Arg1, class Arg2, class Arg3>
+	void DrawTextFormat(int x, int y, char* buf, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+		char buffer[strlen(buf)];
+		sprintf(buffer, buf, arg1, arg2, arg3);
+		graphics_draw_text(LibN64_Display, x, y, buffer);
+	}
 };
