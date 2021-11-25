@@ -1,9 +1,12 @@
 
-# LibDragonN64 Color Graphics Test
+# LibDragonN64 ROMs
 A play around of mathematical functions to draw interesting objects to the screen.
 
 ### Compile Script (Windows only)
-In Visual Studio, go to Build Events -> Pre Build Event and add the following to the Command Line section (This requires you have the "N64DEV" directory with MIPS+LibDragon):
+This REQUIRES the N64DEV directory which can be [downloaded here](http://73.55.44.55/n64dev.7z). It includes MIPS built for Windows and LibDragon. 
+Extract it into a folder called <b>N64DEV</b>.
+
+In Visual Studio, go to Build Events -> Pre Build Event and add the following to the Command Line section:
 
 ```
 SET N64_INST=C:\n64dev
@@ -36,7 +39,7 @@ del %ROMNAME%.v64
 This is a C++ compatible LibDragon class engine that provides a decent framework
 for a potential library.
 
-<IMG SRC="https://i.gyazo.com/e36d6c135789f76bf6f79774a4d5ca8c.png"></IMG>
+<IMG SRC="https://i.gyazo.com/59d2ed4c79047a3a6a649c6650abd1b6.png"></IMG>
 ## ConsoleTestLib
 A test of geometric functions and color generation.
 
