@@ -13,7 +13,7 @@ void init_displays()
 {
 
     /* enable interrupts (on the CPU) */
-    init_interrupts();
+    //init_interrupts();
     /* Initialize peripherals */
     controller_init();
     //initialize the dfs
@@ -136,8 +136,7 @@ void DrawMap() {
     by = boffset;
 
     /*draw from file*/
-    char(*Text) = (char*)(0xB0204A05);
-    DrawText(0, 80, Text);
+    //char(*Text) = (char*)(0xB0204A05);
 
     char buffer[30];
     sprintf(buffer, "Player X: %d Y: %d", PCoords.x, PCoords.y);
@@ -181,9 +180,7 @@ gMapItem items[2] =
     {3,6} 
 };
 
-
 int main(void) {
-
     init_displays();
     initLibSprites();
     timer_init();
@@ -205,8 +202,6 @@ int main(void) {
     for (int i = 0; i < 2; i++) {
         map[sp.at<gMapItem*>(i)->y][sp.at<gMapItem*>(i)->x] = '%';
     }
-    st.push_back("test");
-    st.at(0);
     while (GameLoop) {
         controller_scan();
         controller_data keys = get_keys_down();
@@ -215,6 +210,7 @@ int main(void) {
         {
             if (keys.c[0].down)
             {
+
                 if (!WillCollide(PCoords.x, PCoords.y + 1));
                 curSpr = &profDown;
                 curSprPos.y += 20;
@@ -259,6 +255,10 @@ int main(void) {
             sprintf(buf, "X %d Y %d", curSprPos.x, curSprPos.y);
             DrawText(curSprPos.x-20 + sin(angle) * 3.1415f, curSprPos.y-60 + cos(angle) * 3.1415f, buf);
             wiz.Draw(disp, 5, 40, false, 1);
+
+           // st.push_back("test");
+            //st.at(0);
+
         }
         display_show(disp);
     }

@@ -35,6 +35,12 @@ del %ROMNAME%.v64
 %N64_INST%/bin/chksum64 %ROMNAME%.v64
 ```
 # Roms
+## MODE7 & Pseudo-3D example
+- Player looking over a grassy plane that has a picture of a mountain on it.
+- Player viewing grey walls, generated simply with tricks of mathematics- no objects or lines, just buffer manipulation. 
+<IMG SRC="https://i.gyazo.com/a26ae20a78e24a62abda7183b85b3206.png"></img>
+<IMG SRC="https://i.gyazo.com/c07823b8ccaaae513eecc3c527085faa.png"></img>
+
 ## CPPLibDragonN64 
 This is a C++ compatible LibDragon class engine that provides a decent framework
 for a potential library.

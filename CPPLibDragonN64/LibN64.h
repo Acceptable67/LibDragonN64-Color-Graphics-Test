@@ -2,6 +2,8 @@
 #include <libdragon.h>
 #include <math.h>
 #include <string.h>
+#include <stdlib.h>
+
 #define RED				graphics_make_color(0xFF, 0x00, 0x00, 0xFF)
 #define GREEN			graphics_make_color(0x00, 0xFF, 0x00, 0xFF)
 #define WHITE			graphics_make_color(0xFF, 0xFF, 0xFF, 0xFF)
@@ -37,6 +39,7 @@ private:
 
 	void DrawFrame();
 public:
+	display_context_t LibN64_Display;
 	static display_context_t LibN64_Display;
 
 	const char* romTitle;
@@ -56,6 +59,18 @@ public:
 	void DrawText(int x, int y, const char* t, uint32_t c = WHITE);
 	void DrawBox(int x, int y, int scale, uint32_t c = WHITE);
 	void DrawCircle(int x, int y, int scale, uint32_t c = WHITE);
+
+	/*DFS does not work so here is work around. Manually find*/
+	template<class T>
+	T __lib64_rom2buf(long romAddr, int size) {
+		T tmp = (T)malloc(size + sizeof(char));
+		for (int i = 0; i < size; i++) {
+			T ptr = (T)(romAddr);
+			tmp[i] = *(ptr + i);
+		}
+		return tmp;
+	}
+	int	  __lib64_rom2int(long romAddr);
 
 /*The following functions refuse to compile inside the C++ file.*/
 public:
