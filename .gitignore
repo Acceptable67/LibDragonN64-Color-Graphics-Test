@@ -9,6 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
+Mode73D/ida-20211127-163028-23652.dmp
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
