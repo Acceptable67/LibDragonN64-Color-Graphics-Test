@@ -13,7 +13,7 @@ if (res == RESOLUTION_320x240) {
 	}
 
 	/* enable interrupts (on the CPU) */
-	init_interrupts();
+	//init_interrupts();
 	/* Initialize peripherals */
 	controller_init();
 	//initialize the dfs
@@ -137,4 +137,9 @@ void LibN64::DrawText(int x, int y, const char* buf, uint32_t c) {
 	graphics_set_color(c, 0);
 	graphics_draw_text(LibN64_Display, x, y, buf);
 	graphics_set_color(WHITE, 0);
+}
+
+int LibN64::__lib64_rom2int(long romAddr) {
+	int(*ptr) = (int*)(romAddr);
+	return *ptr;
 }
