@@ -13,7 +13,11 @@ if (res == RESOLUTION_320x240) {
 	}
 
 	/* enable interrupts (on the CPU) */
+<<<<<<< HEAD
 	//init_interrupts();
+=======
+	init_interrupts();
+>>>>>>> c4790ead304bf1d0959bed570640dead3fb7666a
 	/* Initialize peripherals */
 	controller_init();
 	//initialize the dfs
@@ -137,9 +141,12 @@ void LibN64::DrawText(int x, int y, const char* buf, uint32_t c) {
 	graphics_set_color(c, 0);
 	graphics_draw_text(LibN64_Display, x, y, buf);
 	graphics_set_color(WHITE, 0);
+<<<<<<< HEAD
 }
 
 int LibN64::__lib64_rom2int(long romAddr) {
 	int(*ptr) = (int*)(romAddr);
 	return *ptr;
+=======
+>>>>>>> c4790ead304bf1d0959bed570640dead3fb7666a
 }

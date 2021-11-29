@@ -1,5 +1,6 @@
 #pragma once
 
+<<<<<<< HEAD
 int bgdata[] = {
                    0xA4E4FCFF, 0xA4E4FCFF,
         0xA4E4FCFF, 0xA4E4FCFF, 0xA4E4FCFF, 0xA4E4FCFF,
@@ -19204,6 +19205,8 @@ int bgdata[] = {
         0x00B800FF, 0x00B800FF,
 
 };
+=======
+>>>>>>> c4790ead304bf1d0959bed570640dead3fb7666a
 //50 4E
 int n64logo[] = {
             0xFFFFFFFF, 0xFFFFFFFF,

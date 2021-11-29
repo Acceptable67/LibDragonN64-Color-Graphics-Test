@@ -179,6 +179,12 @@ gMapItem items[2] =
     {2,4},
     {3,6} 
 };
+<<<<<<< HEAD
+=======
+
+
+int main(void) {
+>>>>>>> c4790ead304bf1d0959bed570640dead3fb7666a
 
 
 int main(void) {
@@ -256,9 +262,12 @@ int main(void) {
             sprintf(buf, "X %d Y %d", curSprPos.x, curSprPos.y);
             DrawText(curSprPos.x-20 + sin(angle) * 3.1415f, curSprPos.y-60 + cos(angle) * 3.1415f, buf);
             wiz.Draw(disp, 5, 40, false, 1);
+<<<<<<< HEAD
 
            // st.push_back("test");
             //st.at(0);
+=======
+>>>>>>> c4790ead304bf1d0959bed570640dead3fb7666a
         }
         display_show(disp);
     }

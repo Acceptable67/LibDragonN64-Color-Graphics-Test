@@ -24,6 +24,7 @@ public:
     virtual void OnCreate() 
     {
         /*any initialization code*/
+        logo.Ready(0x50, 0x4E, n64logo);
         romTitle = "LibN64 Test";
     }
     
