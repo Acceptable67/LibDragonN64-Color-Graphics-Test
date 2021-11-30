@@ -20,7 +20,7 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/n64dev/include -I/C/n64dev/sm/include -IC:/n64dev/mips64-elf/include -IC:/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+%N64_INST%/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/n64dev/include -I/C/n64dev/sm/include -IC:/n64dev/mips64-elf/include -IC:/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
 
 %N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/n64dev/ldscripts/n64.ld -Map map.txt -LC:/n64dev/lib -LC:/n64dev/mips64-elf/lib -LC:/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/n64dev/mips64-elf/mips64-elf/lib -LC:/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
