@@ -1,7 +1,4 @@
 #include <libdragon.h>
-#include <vector>
-#include <string>
-#include <fstream>
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
@@ -13,7 +10,7 @@ void init_displays()
 {
 
     /* enable interrupts (on the CPU) */
-    //init_interrupts();
+    init_interrupts();
     /* Initialize peripherals */
     controller_init();
     //initialize the dfs

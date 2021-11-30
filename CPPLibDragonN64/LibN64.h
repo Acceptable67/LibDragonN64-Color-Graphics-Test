@@ -37,12 +37,11 @@ private:
 	uint32_t screenWidth;
 	uint32_t screenHeight;
 
-	void DrawFrame();
+	void CheckAndSwitchRes(resolution_t r);
 public:
 	display_context_t LibN64_Display;
-	static display_context_t LibN64_Display;
 
-	const char* romTitle;
+	const char* romTitle = "Default";
 	bool lActive;
 
 	float fFrameTime;

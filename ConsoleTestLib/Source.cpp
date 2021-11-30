@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-//#include <LibN64_h.h>
-
 #include "Source.h"
+
+extern "C" void _exit() {}
 
 class libConsoleGameEngine {
 public:
@@ -224,14 +224,16 @@ int main() {
 		/*temporarily set text color*/
 		graphics_set_color(GOLD, 0x0);
 #define RAD_TO_DEG 57.295779513082320876798154814105
-#define degrees(rad) ((rad)*RAD_TO_DEG
+#define degrees(rad) ((rad)*RAD_TO_DEG)
 
+		/*broken in new GCC*/
+		/*
 		geInstance.DrawDebug<float, float, float, float>(geInstance.screenWidth - 185, 20,
 			(char*)"x difference %f\ny %f\nc = %f\nline deg. %f",
 			(40 + TicksInSeconds - linex),
 			(30 + TicksInSeconds - liney),
 			sqrt(pow(40 + TicksInSeconds - linex, 2) + pow(30 + TicksInSeconds - liney, 2)),
-			degrees(angle)));
+			degrees(angle)));*/
 
 		graphics_set_color(WHITE, 0x0);
 		geInstance.DrawCircle(cx, cy, 4);
@@ -250,8 +252,10 @@ int main() {
 
 
 		graphics_draw_box(disp, geInstance.screenWidth - 315, geInstance.screenHeight - 20, 310, 20, 0x00);
+		
+		/*broken in new GCC*/
 		geInstance.DrawDebug<float, float, float>
-			(geInstance.screenWidth - 310, geInstance.screenHeight - 15, (char*)"Elapsed %.2f Start %.2f  Remaining %.2f", 
+			(geInstance.screenWidth - 310, geInstance.screenHeight - 15, (char*)"Elapsed %2.0f Start %2.0f  Remaining %2.0f", 
 			TicksInSeconds, 
 			(timer_ticks() - timer_start) * 0.021333333 / 1000000.0, 
 			15 - TicksInSeconds);

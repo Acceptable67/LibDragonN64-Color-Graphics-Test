@@ -114,9 +114,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++0x -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -Wno-narrowing -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/custom -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -161,9 +161,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++0x -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -Wno-narrowing -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/custom -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -204,9 +204,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++0x -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -Wno-narrowing -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/custom -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -251,9 +251,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++0x -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -Wno-narrowing -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/custom -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -271,17 +271,9 @@ Build and Link with external MIPS library</Message>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="ArduinoC.c">
-      <SubType>
-      </SubType>
-    </ClCompile>
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ArduinoC.h">
-      <SubType>
-      </SubType>
-    </ClInclude>
     <ClInclude Include="LibConsoleGameEngine.h" />
     <ClInclude Include="Source.h" />
   </ItemGroup>

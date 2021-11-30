@@ -21,8 +21,7 @@ public:
 	int nMapSize;
 
 	void DrawMode() {
-
-		ClearScreen();
+		//ClearScreen();
 	
 		float fFarX1 = fWorldX + cosf(fWorldA - fFoVHalf) * fFar;
 		float fFarY1 = fWorldY + sinf(fWorldA - fFoVHalf) * fFar;
@@ -51,8 +50,9 @@ public:
 					float fSampleX = (fEndX - fStartX) * fSampleWidth + fStartX;
 					float fSampleY = (fEndY - fStartY) * fSampleWidth + fStartY;
 
-					fSampleX = fmod(fSampleX, 1.0f);
-					fSampleY = fmod(fSampleY, 1.0f);
+					/*extend map forever*/
+					//fSampleX = fmod(fSampleX, 1.0f);
+					//fSampleY = fmod(fSampleY, 1.0f);
 
 					int sx = (int)(fSampleX * (float)320.00);
 					int sy = (int)(fSampleY * (float)240.00 - 1.0f);
@@ -71,8 +71,8 @@ public:
 		graphics_draw_line(LibN64_Display, 0, ScreenHeight() - 160, ScreenWidth(), ScreenHeight() - 160, NAVY_BLUE);
 
 
-		DrawTextFormat<float, float, float>(20, 25, (char*)"[Angle] %f\n[F] %f\n[N] %f", fWorldA, fFar, fNear);
-		DrawTextFormat<float, float, float>(20, 55, (char*)"[X] %f [Y] %f\n[FoV] %f", fWorldX, fWorldY, fFoVHalf);
+		DrawTextFormat<float, float, float>(20, 25,(char*)("[Angle] %f\n[F] %f\n[N] %f"), fWorldA, fFar, fNear);
+		DrawTextFormat<float, float, float>(20, 55,(char*)("[X] %f [Y] %f\n[FoV] %f"), fWorldX, fWorldY, fFoVHalf);
 	}
 
 	virtual void OnCreate()
