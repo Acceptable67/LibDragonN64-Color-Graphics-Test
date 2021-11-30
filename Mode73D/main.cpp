@@ -77,7 +77,7 @@ public:
 	}
 
 private:
-	virtual void OnCreate() override
+	virtual void OnCreate() override 
 	{
 
 		nMapSize = 1024;
