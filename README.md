@@ -6,7 +6,7 @@ A play around of mathematical functions to draw interesting objects to the scree
 This REQUIRES the N64DEV directory which can be [downloaded here](http://73.55.44.55/n64dev.7z). It includes MIPS built for Windows and LibDragon. 
 Extract it into a folder called <b>N64DEV</b>.
 
-In Visual Studio, go to Build Events -> Pre Build Event and add the following to the Command Line section:
+In Visual Studio, go to Build Events -> Pre Build Event and add the following to the Command Line section, set project type to Utility and Rebuild the solution:
 
 ```
 SET N64_INST=C:\n64dev
