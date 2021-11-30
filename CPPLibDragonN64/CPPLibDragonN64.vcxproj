@@ -122,7 +122,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
-%N64_INST%/bin/mkdfs files.dfs ./filesystem/
+:: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
+wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
@@ -168,7 +169,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
-%N64_INST%/bin/mkdfs files.dfs ./filesystem/
+:: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
+wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
@@ -210,7 +212,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
-%N64_INST%/bin/mkdfs files.dfs ./filesystem/
+:: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
+wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
@@ -256,7 +259,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
-%N64_INST%/bin/mkdfs files.dfs ./filesystem/
+:: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
+wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
 %N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 

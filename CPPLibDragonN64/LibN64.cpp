@@ -136,8 +136,3 @@ void LibN64::DrawText(int x, int y, const char* buf, uint32_t c) {
 	graphics_set_color(WHITE, 0);
 }
 
-int LibN64::__lib64_rom2int(long romAddr) {
-	int(*ptr) = (int*)(romAddr);
-	return *ptr;
-}
-

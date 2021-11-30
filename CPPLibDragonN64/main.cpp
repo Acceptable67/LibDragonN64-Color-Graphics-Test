@@ -23,6 +23,8 @@ public:
 
     virtual void OnCreate() override 
     {
+        int* n64logo = __lib64_rom2buf<int>(0xB020120C, 0x50 * 0x4E);
+       
         /*any initialization code*/
         logo.Ready(0x50, 0x4E, n64logo);
         romTitle = "LibN64 Test";
@@ -33,7 +35,7 @@ protected:
     {
         DrawText(5, 10, "This is a test of the CPP LibDragon\nframework.");
         DrawCircle(30, 60, 6, RED);
-        DrawTextFormat<float, float>(30, 90, (char*)"Total %2.0f Elapsed %2.0f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime));
+        DrawTextFormat<float, float>(30, 90, (char*)"Total %.4f Elapsed %.4f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime));
 
         /*Draw N64 logo*/
         logo.Draw(LibN64_Display, 10, 160, 1, 1);

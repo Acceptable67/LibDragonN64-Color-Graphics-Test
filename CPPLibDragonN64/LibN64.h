@@ -61,15 +61,19 @@ public:
 
 	/*DFS does not work so here is work around. Manually find*/
 	template<class T>
-	T __lib64_rom2buf(long romAddr, int size) {
-		T tmp = (T)malloc(size + sizeof(char));
+	T* __lib64_rom2buf(long romAddr, int size) {
+		T* tmp = (T*)malloc(size + sizeof(T));
 		for (int i = 0; i < size; i++) {
-			T ptr = (T)(romAddr);
-			tmp[i] = *(ptr + i);
+			tmp[i] = __lib64_rom2type<T>(romAddr + (i*sizeof(T)));
 		}
 		return tmp;
 	}
-	int	  __lib64_rom2int(long romAddr);
+
+	template<class T>
+	T __lib64_rom2type(long romAddr) {
+		T *ptr = (T*)(romAddr);
+		return *ptr;
+	}
 
 /*The following functions refuse to compile inside the C++ file.*/
 public:
