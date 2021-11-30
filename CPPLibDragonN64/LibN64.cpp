@@ -1,19 +1,28 @@
 #include "LibN64.h"
 
-LibN64::LibN64(resolution_t res=RESOLUTION_320x240, bitdepth_t dep=DEPTH_32_BPP) {
+void LibN64::CheckAndSwitchRes(resolution_t r) 
+{
+	auto sr = [&](int x, int y)  {
+		this->screenWidth = x;
+		this->screenHeight = y;
+	};
+
+	switch (r) {
+		case RESOLUTION_320x240: sr(320, 240); break;
+		case RESOLUTION_256x240: sr(256, 240); break;
+		case RESOLUTION_640x480: sr(640, 480); break;
+		case RESOLUTION_512x480: sr(512, 480); break;
+		default: sr(320, 240); break;
+	}
+}
+
+LibN64::LibN64(resolution_t res=RESOLUTION_320x240, bitdepth_t dep=DEPTH_32_BPP) 
+{
 	LibN64_Display = 0;
-
-if (res == RESOLUTION_320x240) {
-		this->screenWidth = 320;
-		this->screenHeight = 240;
-	}
-	else {
-		this->screenWidth = 640;
-		this->screenHeight = 480;
-	}
-
+	
+	CheckAndSwitchRes(res);
+	
 	/* enable interrupts (on the CPU) */
-	//init_interrupts();
 	init_interrupts();
 	/* Initialize peripherals */
 	controller_init();
@@ -46,20 +55,7 @@ void LibN64::ClearScreen() {
 
 void LibN64::SetScreen(resolution_t resol, bitdepth_t bd)
 {
-	switch (resol) {
-	case RESOLUTION_320x240:
-		this->screenWidth = 320;
-		this->screenHeight = 240;
-		break;
-	case RESOLUTION_640x480: 
-		this->screenWidth = 640;
-		this->screenHeight = 480;
-		break;
-	default: 
-		this->screenWidth = 320;
-		this->screenHeight = 240; 
-		break;
-	}
+	CheckAndSwitchRes(resol);
 
 	display_close();
 	display_init(resol, bd, 2, GAMMA_NONE, ANTIALIAS_RESAMPLE);
@@ -138,12 +134,10 @@ void LibN64::DrawText(int x, int y, const char* buf, uint32_t c) {
 	graphics_set_color(c, 0);
 	graphics_draw_text(LibN64_Display, x, y, buf);
 	graphics_set_color(WHITE, 0);
-<<<<<<< HEAD
 }
 
 int LibN64::__lib64_rom2int(long romAddr) {
 	int(*ptr) = (int*)(romAddr);
 	return *ptr;
-=======
->>>>>>> c4790ead304bf1d0959bed570640dead3fb7666a
 }
+

@@ -18,18 +18,12 @@
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ArduinoC.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LibConsoleGameEngine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Source.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ArduinoC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

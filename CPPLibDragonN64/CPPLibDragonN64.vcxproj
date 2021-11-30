@@ -96,6 +96,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -106,7 +108,7 @@
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=16M
+SET ROM_SIZE=2M
 
 del map.txt
 del *.o
@@ -114,9 +116,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -138,6 +140,8 @@ del %ROMNAME%.v64
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -150,7 +154,7 @@ del %ROMNAME%.v64
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=16M
+SET ROM_SIZE=2M
 
 del map.txt
 del *.o
@@ -158,9 +162,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -180,6 +184,8 @@ del %ROMNAME%.v64
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -190,7 +196,7 @@ del %ROMNAME%.v64
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=16M
+SET ROM_SIZE=2M
 
 del map.txt
 del *.o
@@ -198,9 +204,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
@@ -222,6 +228,8 @@ del %ROMNAME%.v64
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <LanguageStandard_C>stdc11</LanguageStandard_C>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -234,7 +242,7 @@ del %ROMNAME%.v64
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=16M
+SET ROM_SIZE=2M
 
 del map.txt
 del *.o
@@ -242,9 +250,9 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-%N64_INST%/bin/mips64-elf-g++ -std=gnu++98 -march=vr4300 -mtune=vr4300 -G 0 -O2 -Wall -c -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/C/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -IC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -fno-exceptions -nostdlib -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
-%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/libSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib/gcc/mips64-elf/4.8.1 -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lstdc++ -lc -lgcc -ldragonsys
+%N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
 %N64_INST%/bin/mips64-elf-objcopy %ROMNAME%.elf %ROMNAME%.bin -O binary
 
