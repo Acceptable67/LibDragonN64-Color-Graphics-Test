@@ -108,7 +108,7 @@
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=2M
+SET ROM_SIZE=4M
 
 del map.txt
 del *.o
@@ -116,7 +116,7 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++20 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
 %N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
@@ -125,7 +125,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 :: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
 wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
-%N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+:: %N64_INST%/bin/n64tool -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+wsl /root/libdragon/tools/n64tool  -l %ROM_SIZE% -t "%ROMNAME%" -h /mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
 %N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>
@@ -155,7 +156,7 @@ wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=2M
+SET ROM_SIZE=4M
 
 del map.txt
 del *.o
@@ -163,7 +164,7 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++20 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
 %N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
@@ -172,7 +173,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 :: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
 wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
-%N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+:: %N64_INST%/bin/n64tool -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+wsl /root/libdragon/tools/n64tool  -l %ROM_SIZE% -t "%ROMNAME%" -h /mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
 %N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>
@@ -198,7 +200,7 @@ wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=2M
+SET ROM_SIZE=4M
 
 del map.txt
 del *.o
@@ -206,7 +208,7 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++20 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
 %N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
@@ -215,7 +217,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 :: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
 wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
-%N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+:: %N64_INST%/bin/n64tool -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+wsl /root/libdragon/tools/n64tool  -l %ROM_SIZE% -t "%ROMNAME%" -h /mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
 %N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>
@@ -245,7 +248,7 @@ wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
       <Command>SET N64_INST=C:\Users\spenc\Dropbox\N64_DEV_STUFF\n64dev
 SET ROMNAME=$(TargetFileName)
 SET CPP_FILES=Source.cpp
-SET ROM_SIZE=2M
+SET ROM_SIZE=4M
 
 del map.txt
 del *.o
@@ -253,7 +256,7 @@ del %ROMNAME%.bin
 del %ROMNAME%.elf
 del %ROMNAME%.v64
 
-wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++11 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
+wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++20 -march=vr4300 -mtune=vr4300 -O2 -Wall -c -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/sm/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/include -I/mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/mips64-elf/include -ffreestanding -nostdlib -Wno-narrowing -fno-exceptions -fno-rtti *.cpp
 
 %N64_INST%/bin/mips64-elf-ld -o %ROMNAME%.elf *.o extern_lib/LibSprite.o -TC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/ldscripts/n64.ld -Map map.txt -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/mips64-elf/lib -LC:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/lib/gcc/mips64-elf/4.4.0 -ldragon -lm -lc -lstdc++ -lgcc -ldragonsys
 
@@ -262,7 +265,8 @@ wsl /root/mips64-gcc-toolchain/scripts/build/linux64/bin/mips64-elf-g++ -std=c++
 :: %N64_INST%/bin/mkdfs files.dfs ./filesystem/
 wsl /root/libdragon/tools/mkdfs/mkdfs files.dfs ./filesystem/
 
-%N64_INST%/bin/n64tool -b -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+:: %N64_INST%/bin/n64tool -l %ROM_SIZE% -t "%ROMNAME%" -h C:/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
+wsl /root/libdragon/tools/n64tool  -l %ROM_SIZE% -t "%ROMNAME%" -h /mnt/c/Users/spenc/Dropbox/N64_DEV_STUFF/n64dev/headers/header -o %ROMNAME%.v64 %ROMNAME%.bin -s 2M files.dfs
 
 %N64_INST%/bin/chksum64 %ROMNAME%.v64</Command>
     </PreBuildEvent>

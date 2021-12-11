@@ -29,13 +29,15 @@ private:
 	virtual void KeyBPressed();
 	virtual void KeyZPressed();
 
+	virtual void KeyStartPressed();
+
 	virtual void KeyDUPressed();
 	virtual void KeyDDPressed();
 	virtual void KeyDLPressed();
 	virtual void KeyDRPressed();
 
-	uint32_t screenWidth;
-	uint32_t screenHeight;
+	unsigned screenWidth;
+	unsigned screenHeight;
 
 	void CheckAndSwitchRes(resolution_t r);
 public:
@@ -53,17 +55,21 @@ public:
 	void Close();
 	void ClearScreen();
 	void SetScreen(resolution_t res, bitdepth_t bd);
-	uint32_t ScreenWidth();
-	uint32_t ScreenHeight();
+	unsigned ScreenWidth();
+	unsigned ScreenHeight();
 	void DrawText(int x, int y, const char* t, uint32_t c = WHITE);
-	void DrawBox(int x, int y, int scale, uint32_t c = WHITE);
-	void DrawCircle(int x, int y, int scale, uint32_t c = WHITE);
+	void DrawBox(int x, int y, int scale,      uint32_t c = WHITE);
+	void DrawCircle(int x, int y, int scale,   uint32_t c = WHITE);
+	constexpr auto Ticks2Seconds(float t);
 
+	/*The following functions refuse to compile inside the C++ file.*/
 	/*DFS does not work so here is work around. Manually find*/
+	
+public:
 	template<class T>
 	T* __lib64_rom2buf(long romAddr, int size) {
 		T* tmp = (T*)malloc(size + sizeof(T));
-		for (int i = 0; i < size; i++) {
+		for (auto i = 0; i < size; i++) {
 			tmp[i] = __lib64_rom2type<T>(romAddr + (i*sizeof(T)));
 		}
 		return tmp;
@@ -75,26 +81,31 @@ public:
 		return *ptr;
 	}
 
-/*The following functions refuse to compile inside the C++ file.*/
-public:
 	template<class Arg1>
-	void DrawTextFormat(int x, int y, char* buf, Arg1 arg1) {
+	constexpr void DrawTextFormat(int x, int y, const char* buf, Arg1 arg1) {
 		char buffer[strlen(buf)];
 		sprintf(buffer, buf, arg1);
 		graphics_draw_text(LibN64_Display, x, y, buffer);
 	}
 
 	template<class Arg1, class Arg2>
-	void DrawTextFormat(int x, int y, char* buf, Arg1 arg1, Arg2 arg2) {
+	constexpr void DrawTextFormat(int x, int y, const char* buf, Arg1 arg1, Arg2 arg2) {
 		char buffer[strlen(buf)];
 		sprintf(buffer, buf, arg1, arg2);
 		graphics_draw_text(LibN64_Display, x, y, buffer);
 	}
 
 	template<class Arg1, class Arg2, class Arg3>
-	void DrawTextFormat(int x, int y, char* buf, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
+	constexpr void DrawTextFormat(int x, int y, const char* buf, Arg1 arg1, Arg2 arg2, Arg3 arg3) {
 		char buffer[strlen(buf)];
 		sprintf(buffer, buf, arg1, arg2, arg3);
 		graphics_draw_text(LibN64_Display, x, y, buffer);
+	}
+
+	template<class Arg1, class Arg2, class Arg3, class Arg4>
+	constexpr void DrawTextFormat(int x, int y, const char* buf, Arg1 arg1, Arg2 arg2, Arg3 arg3, Arg4 arg4) {
+		char buffer[strlen(buf)];
+		sprintf(buffer, buf, arg1, arg2, arg3, arg4);
+		DrawText(x, y, buffer);
 	}
 };

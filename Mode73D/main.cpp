@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <LibSprite.h>
-#include "LibN64.h"
+#include <LibN64Lib.h>
 #include "Sprites.h"
 
 /*test of pseudo-3D planes on LibDragon.*/
@@ -84,8 +84,8 @@ private:
 		fWorldX = 000.0f;
 		fWorldY = 000.0f;
 		fWorldA = 0.1f;
-		fNear = 0.001f;
-		fFar = 0.08f;
+		fNear = 0.01f;
+		fFar = 0.8f;
 		fFoVHalf = 3.14159f / 4.0f;
 	}
 
@@ -118,7 +118,7 @@ protected:
 	
 	virtual void KeyAPressed() override 
 	{
-		fFar += 0.1;
+		//fFar += 0.1;
 	}
 
 	virtual void KeyBPressed() override 
