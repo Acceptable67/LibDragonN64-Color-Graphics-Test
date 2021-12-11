@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <LibSprite.h>
-#include "LibN64.h"
+#include <LibN64Lib.h>
 #include "Sprites.h"
 
 /*test of pseudo-3D planes on LibDragon.*/
@@ -72,8 +72,8 @@ public:
 		graphics_draw_line(LibN64_Display, 0, ScreenHeight() - 160, ScreenWidth(), ScreenHeight() - 160, NAVY_BLUE);
 
 
-		DrawTextFormat<float, float, float>(20, 25,(char*)("[Angle] %f\n[F] %f\n[N] %f"), fWorldA, fFar, fNear);
-		DrawTextFormat<float, float, float>(20, 55,(char*)("[X] %f [Y] %f\n[FoV] %f"), fWorldX, fWorldY, fFoVHalf);
+		DrawTextFormat(20, 25,(char*)("[Angle] %f\n[F] %f\n[N] %f"), fWorldA, fFar, fNear);
+		DrawTextFormat(20, 55,(char*)("[X] %f [Y] %f\n[FoV] %f"), fWorldX, fWorldY, fFoVHalf);
 	}
 
 private:
@@ -84,8 +84,8 @@ private:
 		fWorldX = 000.0f;
 		fWorldY = 000.0f;
 		fWorldA = 0.1f;
-		fNear = 0.001f;
-		fFar = 0.08f;
+		fNear = 0.01f;
+		fFar = 0.8f;
 		fFoVHalf = 3.14159f / 4.0f;
 	}
 
@@ -118,7 +118,7 @@ protected:
 	
 	virtual void KeyAPressed() override 
 	{
-		fFar += 0.1;
+		//fFar += 0.1;
 	}
 
 	virtual void KeyBPressed() override 

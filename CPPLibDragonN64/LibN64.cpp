@@ -2,12 +2,14 @@
 
 void LibN64::CheckAndSwitchRes(resolution_t r) 
 {
-	auto sr = [&](int x, int y)  {
+	auto sr = [&](auto x, auto y)  
+	{
 		this->screenWidth = x;
 		this->screenHeight = y;
 	};
 
-	switch (r) {
+	switch (r) 
+	{
 		case RESOLUTION_320x240: sr(320, 240); break;
 		case RESOLUTION_256x240: sr(256, 240); break;
 		case RESOLUTION_640x480: sr(640, 480); break;
@@ -16,7 +18,7 @@ void LibN64::CheckAndSwitchRes(resolution_t r)
 	}
 }
 
-LibN64::LibN64(resolution_t res=RESOLUTION_320x240, bitdepth_t dep=DEPTH_32_BPP) 
+LibN64::LibN64(resolution_t res = RESOLUTION_320x240, bitdepth_t dep = DEPTH_32_BPP) 
 {
 	LibN64_Display = 0;
 	
@@ -39,14 +41,15 @@ LibN64::LibN64(resolution_t res=RESOLUTION_320x240, bitdepth_t dep=DEPTH_32_BPP)
 	lActive = true;
 }
 
-void LibN64::FrameUpdate() { }
-void LibN64::KeyAPressed() {}
-void LibN64::KeyBPressed() {}
+void LibN64::FrameUpdate()  {}
+void LibN64::KeyAPressed()  {}
+void LibN64::KeyBPressed()  {}
 void LibN64::KeyDUPressed() {}
 void LibN64::KeyDDPressed() {}
 void LibN64::KeyDLPressed() {}
 void LibN64::KeyDRPressed() {}
 void LibN64::KeyZPressed()	{}
+void LibN64::KeyStartPressed() {}
 void LibN64::OnCreate() {}
 
 void LibN64::ClearScreen() {
@@ -71,17 +74,18 @@ void LibN64::SetScreen(resolution_t resol, bitdepth_t bd)
 	}
 }*/
 
-uint32_t LibN64::ScreenWidth() { return screenWidth; }
+unsigned LibN64::ScreenWidth() { return screenWidth; }
 
-uint32_t LibN64::ScreenHeight() { return screenHeight; }
+unsigned LibN64::ScreenHeight() { return screenHeight; }
 
 
-void LibN64::DrawBox(int x, int y, int scale, uint32_t c)
+void LibN64::DrawBox(int x, int y, int scale, unsigned c)
 {
 	graphics_draw_box(LibN64_Display, x, y, scale, scale, c);
 }
 
-void LibN64::Begin() {	
+void LibN64::Begin() 
+{	
 	this->OnCreate();
 	while (lActive) {
 		timer_init();
@@ -112,6 +116,9 @@ void LibN64::Begin() {
 			if (keys.c[0].Z) {
 				this->KeyZPressed();
 			}
+			if (keys.c[0].start) {
+				this->KeyStartPressed();
+			}
 		}
 		display_show(LibN64_Display);
 
@@ -121,18 +128,29 @@ void LibN64::Begin() {
 	}
 }
 
-void LibN64::Close() {
+void LibN64::Close() 
+{
 	lActive = false;
 }
-void LibN64::DrawCircle(int x, int y, int scale, uint32_t c) {
+void LibN64::DrawCircle(int x, int y, int scale, unsigned c) 
+{
 	for(int angles =0;angles<80*scale;angles++) {
 		graphics_draw_box(LibN64_Display, x + cosf(angles) * 3.1415f * scale, y + sinf(angles) * 3.1415f * scale, 1, 1, c);
 	}
 }
 
-void LibN64::DrawText(int x, int y, const char* buf, uint32_t c) {
+void LibN64::DrawLine(int x1, int y1, int x2, int y2, unsigned c) {
+	graphics_draw_line(this->LibN64_Display, x1, y1, x2, y2, c);
+}
+
+void LibN64::DrawText(int x, int y, const char* buf, unsigned c) 
+{
 	graphics_set_color(c, 0);
 	graphics_draw_text(LibN64_Display, x, y, buf);
 	graphics_set_color(WHITE, 0);
 }
 
+constexpr auto LibN64::Ticks2Seconds(float t) 
+{
+	return (t * 0.021333333 / 1000000.0);
+}

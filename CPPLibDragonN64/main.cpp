@@ -19,6 +19,7 @@ libSprite logo;
 
 class Instance : public LibN64 {
 public:
+    char* buffer;
     Instance(resolution_t res, bitdepth_t dep) : LibN64(res, dep) {}
 
     virtual void OnCreate() override 
@@ -33,10 +34,12 @@ public:
 protected:
     virtual void FrameUpdate() override
     {
+
+        //ClearScreen();
         DrawText(5, 10, "This is a test of the CPP LibDragon\nframework.");
         DrawCircle(30, 60, 6, RED);
-        DrawTextFormat<float, float>(30, 90, (char*)"Total %.4f Elapsed %.4f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime));
-
+        DrawTextFormat(30, 90, "Total %.4f Elapsed %.4f", TICKS2SECONDS(fTotalTime), TICKS2SECONDS(fFrameTime));
+        DrawTextFormat(2, 4, "%s", buffer);
         /*Draw N64 logo*/
         logo.Draw(LibN64_Display, 10, 160, 1, 1);
     }
@@ -56,7 +59,7 @@ protected:
             SetScreen(RESOLUTION_320x240, DEPTH_32_BPP);
         }
         else {
-            SetScreen(RESOLUTION_640x480, DEPTH_32_BPP);
+            SetScreen(RESOLUTION_256x240, DEPTH_32_BPP);
         }
     }
 private:
